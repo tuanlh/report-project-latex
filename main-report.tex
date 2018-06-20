@@ -16,9 +16,9 @@
 \usepackage{chngcntr} % Dùng để thiết lập lại cách đánh số caption,..
 \usepackage{pdflscape} % Đưa các bảng có kích thước đặt theo chiều ngang giấy
 \usepackage{afterpage}
-\usepackage{capt-of}
+\usepackage{capt-of} % Cho phép sử dụng caption lớn đối với landscape page
 
-\include{lstlisting}
+\include{lstlisting} % Phần này cho phép chèn code và formatting code như C, C++, Python
 
 \pagestyle{plain}
 
@@ -47,7 +47,8 @@ pdfmenubar=false % Ẩn đi menu bar trong PDF viewer
 
 \hypersetup{pdftitle={\TITLE},
 	pdfauthor={\AUTHOR}}
-\usepackage[all]{hypcap}
+	
+\usepackage[all]{hypcap} % Cho phép tham chiếu chính xác đến hình ảnh và bảng biểu
 
 \graphicspath{{figures/}{../figures/}} % Thư mục chứa các hình ảnh
 
@@ -77,7 +78,7 @@ pdfmenubar=false % Ẩn đi menu bar trong PDF viewer
 
 \newpage
 \pagenumbering{arabic}
-\subfile{chapters/intro}
+\subfile{chapters/intro} % Phần mở đầu
 
 \newpage
 \chapter{CƠ SỞ LÝ THUYẾT}
