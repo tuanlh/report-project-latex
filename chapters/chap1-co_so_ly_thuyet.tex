@@ -80,30 +80,14 @@ Có 3 loại decision trees phổ biến sau:
 \item \textbf{CART (Classification and Regression Trees)} - Tương tự như C4.5, nhưng nó hỗ trợ thêm đối tượng dự đoán là giá trị số (\textit{Regression}). Cấu trúc CART dạng cây nhị phân, mỗi node sử dụng một ngưỡng để đạt được ``information gian'' lớn nhất.
 \end{itemize}
 
-Bảng \ref{tab:decision_type}  so sánh giữa các loại thuật toán decision tree.
-\newpage
+Hình \ref{fig:decision_tree_type_comparison} so sánh giữa các loại thuật toán decision tree.
 
-\afterpage{%
-\clearpage% Flush earlier floats (otherwise order might not be correct)
-\begin{landscape}
-\centering
-\begin{tabular}{|p{10mm}|>{\raggedright\arraybackslash}p{35mm}|>{\raggedright\arraybackslash}p{45mm}|>{\raggedright\arraybackslash}p{40mm}|>{\raggedright\arraybackslash}p{40mm}|>{\raggedright\arraybackslash}p{40mm}|}
-\hline 
-Name & Splitting criteria & Attribute type & Missing values & Pruning Strategy & Outlier Detection \\ 
-\hline 
-ID3 & Information Gain & Handles only Categorical value & Do not handles missing values & No pruning is done & Susceptible to outliers  \\ 
-\hline 
-C4.5 & Towing Criteria & Handles both Categorical \& Numeric  value & Handles missing values & Cross-Complexity is used & Can handle Outliers \\ 
-\hline 
-CART & Gain Ratio & Handles both Categorical \& Numeric  value & handles missing values & Error Based pruning is used & Susceptible to outliers  \\ 
-\hline 
-\end{tabular} 
-\captionof{table}{Bảng so sánh một số loại thuật toán Decision Trees}
-\label{tab:decision_type}
-\end{landscape}
-\clearpage% Flush page
-}
-\newpage
+\begin{figure}[ht!]
+\centering\includegraphics[scale=0.75]{comparison-decision-trees}
+\caption{So sánh các thuật toán Decision Trees}
+\label{fig:decision_tree_type_comparison}
+\end{figure}
+
 \subsection{Ưu và nhược điểm của thuật toán}
 Tùy vào loại Decision tree sử dụng mà ta có ưu nhược điểm riêng. Nhưng nhìn chung thuật toán có những ưu nhược điểm chung như sau:
 \subsubsection*{Về ưu điểm}
