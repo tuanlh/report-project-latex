@@ -7,4 +7,6 @@ Các chapters được chứa trong thư mục **chapters/**
 
 Các hình ảnh được chứa trong thư mục **figures/**
 
+Danh mục tài liệu tham khảo được chứa trong thư mục **bibilography/**
+
 File output ra PDF ở **main-report.pdf**
