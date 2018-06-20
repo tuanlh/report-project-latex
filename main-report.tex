@@ -2,7 +2,6 @@
 \usepackage[utf8x]{vietnam} % Sử dụng tiếng việt
 \usepackage[top=3cm, bottom=3.5cm, left=3.5cm, right=2cm] {geometry} % Canh lề trang
 \usepackage{graphicx} % Sử dụng hình ảnh
-%\usepackage{fancyhdr} % Tạo phần header, footer
 \usepackage{fancybox} % Tạo khung box
 \usepackage{indentfirst} % Thụt đầu dòng ở dòng đầu tiên trong đoạn
 \usepackage{latexsym} % Các kí hiệu toán học
@@ -10,8 +9,6 @@
 \usepackage{times} % Chọn font Time New Romans
 \usepackage{array} % Tạo bảng array
 \usepackage{subfiles} % Chèn các file nhỏ, giúp chia các chapter ra nhiều file hơn
-%\usepackage{emptypage} % Không đánh số trang một số trang
-\usepackage{makecell} % Dùng để làm nổi bật header của bảng
 \usepackage{titlesec}
 \usepackage{chngcntr} % Dùng để thiết lập lại cách đánh số caption,..
 \usepackage{pdflscape} % Đưa các bảng có kích thước đặt theo chiều ngang giấy
@@ -32,8 +29,6 @@
   {\normalfont\huge\bfseries}{\centering}{20pt}{\Huge\centering}
 \titlespacing*{\part}{0pt}{50pt}{40pt}
 
-%\titleclass{\chapter}{straight}
-
 \usepackage[pdftex, % Sử dụng PDF TeX
 bookmarks=true, % Tạo bookmarks trong tập tin PDF
 colorlinks=true, % Chữ có màu
@@ -53,9 +48,6 @@ pdfmenubar=false % Ẩn đi menu bar trong PDF viewer
 \graphicspath{{figures/}{../figures/}} % Thư mục chứa các hình ảnh
 
 \counterwithin{figure}{chapter} % Đánh số hình ảnh kèm theo chapter. Ví dụ: Hình 1.1, 1.2,..
-
-% Định dạng cho header của bảng
-\renewcommand\theadfont{\bfseries}
 
 \title{\bf \TITLE}
 \author{\AUTHOR}
