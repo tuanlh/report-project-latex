@@ -4,7 +4,7 @@
 % Tham khảo: https://viblo.asia/p/ly-thuyet-xac-suat-co-ban-su-dung-trong-machine-learning-naQZR78Plvx
 Có thể nói một điều rằng lý thuyết xác suất là một trong những lý thuyết quan trọng nhất của khoa học hiện đại và đặc biệt là \textbf{Machine Learning} bởi vì đa phần các thuật toán của Machine Learning đều có cơ sở dựa trên xác suất.
 
-Phân bên dưới chúng tôi trình bày chủ yếu một số lý thuyết cơ bản được chúng tôi tìm hiểu và tổng hợp từ \citep{viblo:xacsuat}
+Phần bên dưới chúng tôi trình bày chủ yếu một số lý thuyết cơ bản được chúng tôi tìm hiểu và tổng hợp từ \citep{viblo:xacsuat}
 \subsection{Không gian xác suất}
 Khi nói đến xác suất là người ta nói đến các lý thuyết toán học về sự \textit{bất định - uncertainly} hay nói một cách khác, xác suất biểu thị khả năng xảy ra của các \textit{sự kiện - event} trong một môi trường bất định nào đó. Ví dụ chúng ta xét về xác suất có mưa hay không có mưa vào thứ hai tuần tới, xác suất tỏ tình thành công hay thất bại của cậu bạn thân,\ldots Tóm lại cứ nói đến xác suất là đề cập đến sự không chắc chắn hay bất định đó.
 
@@ -65,6 +65,10 @@ Còn \textbf{biến ngẫu nhiên liên tục} có thể định nghĩa là các
 \end{equation}
 
 \subsection{Xác suất có điều kiện}
+Dựa vào phổ điểm của các học sinh, liệu ta có thể tính được xác suất để một học sinh được điểm 10 môn Lý, biết rằng học sinh đó được điểm 1 môn Toán (ai cũng có quyền hy vọng). Hoặc biết rằng bây giờ đang là tháng 7, tính xác suất để nhiệt độ hôm nay cao hơn 30 độ C.
+
+Xác suất có điều kiện (\textbf{conditional probability}) của một biến ngẫu nhiên $x$ biết rằng biến ngẫu nhiên $y$ có giá trị $y^{*}$ được ký hiệu là $p(x\ |\ y = y^{*})$ (đọc là \textit{probability of} $x$ \textit{given tha}t $y$ \textit{takes value} $y^{*}$).
+
 
 \subsection{Quy tắc Bayes}
 
