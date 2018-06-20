@@ -3,6 +3,8 @@
 \section{Một số lý thuyết về xác suất}
 % Tham khảo: https://viblo.asia/p/ly-thuyet-xac-suat-co-ban-su-dung-trong-machine-learning-naQZR78Plvx
 Có thể nói một điều rằng lý thuyết xác suất là một trong những lý thuyết quan trọng nhất của khoa học hiện đại và đặc biệt là \textbf{Machine Learning} bởi vì đa phần các thuật toán của Machine Learning đều có cơ sở dựa trên xác suất.
+
+Phân bên dưới chúng tôi trình bày chủ yếu một số lý thuyết cơ bản được chúng tôi tìm hiểu và tổng hợp từ \citep{viblo:xacsuat}
 \subsection{Không gian xác suất}
 Khi nói đến xác suất là người ta nói đến các lý thuyết toán học về sự \textit{bất định - uncertainly} hay nói một cách khác, xác suất biểu thị khả năng xảy ra của các \textit{sự kiện - event} trong một môi trường bất định nào đó. Ví dụ chúng ta xét về xác suất có mưa hay không có mưa vào thứ hai tuần tới, xác suất tỏ tình thành công hay thất bại của cậu bạn thân,\ldots Tóm lại cứ nói đến xác suất là đề cập đến sự không chắc chắn hay bất định đó.
 
@@ -29,6 +31,38 @@ Giống như ví dụ ở phía trên, khi \textit{không gian mẫu - outcomes 
 \subsection{Biến ngẫu nghiên}
 \textbf{Biến ngẫu nghiên (Random Variables)} là một thành phần quan trọng trong lý thuyết xác suất. Nó biểu diễn giá trị của các đại lượng không xác định, thông thường nó được coi như một ánh xạ từ tập các \textbf{outcomes} trong không gian mẫu thành các giá trị thực.
 
+\begin{figure}[ht!]
+\centering\includegraphics[scale=0.9]{random-variable}
+\caption{Minh họa giá trị X ánh xạ từ các tập outcomes}
+\end{figure}
+
+Quay trở lại với ví dụ tung xúc sắc phía trên, gọi $X$ là biến ngẫu nhiên biểu diễn kết quả của các những lần gieo xúc sắc. Một lựa chọn khá tự nhiên và đơn giản đó là: \textbf{``$\boldsymbol{X}$ là số chấm tròn trên mặt tung được''}
+
+Chúng ta cũng có thể lựa chọn một chiến lược biểu diễn biến ngẫu nhiên $X$ khác chẳng hạn như sau:
+
+\begin{equation} \label{eq:ex_rand_var}
+X = \left\{\begin{array}{ll}
+	1 & \text{ if i is odd} \\
+	0 & \text{ if i is even}
+	\end{array}\right.
+\end{equation}
+
+Có nghĩa là cùng một biến cố nhưng biểu diễn nó như thế nào là việc của mỗi chúng ta. Biến ngẫu nhiên $X$ biểu diễn như biểu thức (\ref{eq:ex_rand_var}) được gọi là \textit{binary random variables - biến nhị phân}. Biến nhị phân được sử dụng rất thông dụng trong thực tế công việc nhất là Machine Learning và thường được biết đến với cái tên \textbf{indicator variables} nó thể hiện s\textit{ự xảy ra hay không xảy ra} của một sự kiện.
+
+\subsubsection*{Biến ngẫu nhiên rời rạc và biến ngẫu nhiên liên tục}
+Có hai loại biến ngẫu nhiên đó là \textbf{BNN rời rạc} và \textbf{BNN liên tục}.
+
+\textbf{Rời rạc} có thể hiểu một cách đơn giản là giá trị của nó thuộc vào một tập định trước. Trong Machine Learning các giá trị này tương ứng với \textit{các phân lớp (class)}. Ví dụ tung xúc sắc bên trên là một điển hình của biến ngẫu nhiên rời rạc và hàm xác suất của nó được định nghĩa như sau:
+
+\begin{equation}
+\sum_{\forall x}{p(x)}=1 
+\end{equation}
+
+Còn \textbf{biến ngẫu nhiên liên tục} có thể định nghĩa là các biến ngẫu nhiên mà các giá trị của nó rơi vào một tập \textit{không biết trước}. Trong Machine Learning người ta gọi lớp bài toán với biến ngẫu nhiên liên tục là \textbf{Hồi quy}. Giá trị của nó có thể nằm trong một khoảng hữu hạn ví dụ như thời gian làm bài thi đại học là $t \in \left ( 0;180 \right )$ phút hoặc cũng có thể là vô hạn ví dụ như thời gian từ bây giờ đến ngày tận thế $t \in \left ( 0; +\infty \right )$ chẳng hạn. Khi đó hàm mật độ xác suất của nó trên toàn miền giá trị $D$ của outcomes space được định nghĩa bằng một tích phân như sau:
+
+\begin{equation}
+\int_{D}p(x)dx=1
+\end{equation}
 
 \subsection{Xác suất có điều kiện}
 

@@ -1,11 +1,13 @@
 \documentclass[a4paper,12pt,oneside]{report}
-\usepackage[utf8x]{vietnam} % Sử dụng tiếng việt
+\usepackage[utf8]{vietnam} % Sử dụng tiếng việt
 \usepackage[top=3cm, bottom=3.5cm, left=3.5cm, right=2cm] {geometry} % Canh lề trang
 \usepackage{graphicx} % Cho phép chèn hỉnh ảnh
 \usepackage{fancybox} % Tạo khung box
 \usepackage{indentfirst} % Thụt đầu dòng ở dòng đầu tiên trong đoạn
 \usepackage{latexsym} % Các kí hiệu toán học
+\usepackage{amsmath} % Hỗ trợ một số biểu thức toán học
 \usepackage{amssymb} % Bổ sung thêm kí hiệu về toán học
+\usepackage{amsbsy} % Hỗ trợ các kí hiệu in đậm
 \usepackage{times} % Chọn font Time New Romans
 \usepackage{array} % Tạo bảng array
 \usepackage{subfiles} % Chèn các file nhỏ, giúp chia các chapter ra nhiều file hơn
@@ -15,7 +17,10 @@
 \usepackage{afterpage}
 \usepackage{capt-of} % Cho phép sử dụng caption lớn đối với landscape page
 \usepackage{fancyhdr} % Cho phép tùy biến header và footer
- 
+\usepackage[natbib,backend=biber]{biblatex} % Giúp chèn tài liệu tham khảo
+
+\bibliography{bibliography/main.bib} % chèn file chứa danh mục tài liệu tham khảo vào 
+
 \include{lstlisting} % Phần này cho phép chèn code và formatting code như C, C++, Python
 
 \pagestyle{fancy}
@@ -90,4 +95,6 @@ pdfmenubar=false % Ẩn đi menu bar trong PDF viewer
 
 \part*{TÀI LIỆU THAM KHẢO}
 \addcontentsline{toc}{chapter}{Tài liệu tham khảo}
+\nocite{*} % Tùy chọn cho phép in tất cả danh mục tài liệu tham khảo, kể cả tài liệu không được tham chiếu
+\printbibliography % In ra danh mục tài liệu tham khảo
 \end{document}
