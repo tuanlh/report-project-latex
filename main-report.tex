@@ -1,0 +1,91 @@
+\documentclass[a4paper,12pt,oneside]{report}
+\usepackage[utf8x]{vietnam} % Sử dụng tiếng việt
+\usepackage[top=3cm, bottom=3.5cm, left=3.5cm, right=2cm] {geometry} % Canh lề trang
+\usepackage{graphicx} % Sử dụng hình ảnh
+%\usepackage{fancyhdr} % Tạo phần header, footer
+\usepackage{fancybox} % Tạo khung box
+\usepackage{indentfirst} % Thụt đầu dòng ở dòng đầu tiên trong đoạn
+\usepackage{latexsym} % Các kí hiệu toán học
+\usepackage{amssymb} % Bổ sung thêm kí hiệu về toán học
+\usepackage{times} % Chọn font Time New Romans
+\usepackage{array} % Tạo bảng array
+\usepackage{subfiles} % Chèn các file nhỏ, giúp chia các chapter ra nhiều file hơn
+%\usepackage{emptypage} % Không đánh số trang một số trang
+\usepackage{makecell} % Dùng để làm nổi bật header của bảng
+\usepackage{titlesec}
+\usepackage{chngcntr} % Dùng để thiết lập lại cách đánh số caption,..
+\usepackage{pdflscape} % Đưa các bảng có kích thước đặt theo chiều ngang giấy
+\usepackage{afterpage}
+\usepackage{capt-of}
+
+\include{lstlisting}
+
+\pagestyle{plain}
+
+\def \TITLE{Báo cáo Đồ án chuyên ngành}
+\def \AUTHOR{Nguyễn Việt Thành, Lê Hoàng Tuấn}
+
+\newcommand{\titlesize}{\fontsize{18pt}{23pt}\selectfont}
+\newcommand{\subtitlesize}{\fontsize{16pt}{21pt}\selectfont}
+\titleclass{\part}{top}
+\titleformat{\part}[display]
+  {\normalfont\huge\bfseries}{\centering}{20pt}{\Huge\centering}
+\titlespacing*{\part}{0pt}{50pt}{40pt}
+
+%\titleclass{\chapter}{straight}
+
+\usepackage[pdftex, % Sử dụng PDF TeX
+bookmarks=true, % Tạo bookmarks trong tập tin PDF
+colorlinks=true, % Chữ có màu
+pdfencoding=auto, % Tự động điều chỉnh encoding của PDF
+unicode=true, % Sử dụng Unicode
+pdffitwindow=true, % Fit cho vừa cửa sổ
+pdfstartview={FitH}, % Zoom file PDF cho vừa khít với nội dung
+pdftoolbar=false, % Ẩn đi tool bar trong PDF viewer
+pdfmenubar=false % Ẩn đi menu bar trong PDF viewer
+]{hyperref}
+
+\hypersetup{pdftitle={\TITLE},
+	pdfauthor={\AUTHOR}}
+\usepackage[all]{hypcap}
+
+\graphicspath{{figures/}{../figures/}} % Thư mục chứa các hình ảnh
+
+\counterwithin{figure}{chapter} % Đánh số hình ảnh kèm theo chapter. Ví dụ: Hình 1.1, 1.2,..
+
+% Định dạng cho header của bảng
+\renewcommand\theadfont{\bfseries}
+
+\title{\bf \TITLE}
+\author{\AUTHOR}
+
+\setlength{\parskip}{6pt} % Đặt khoảng cách giữa các đoạn => After = Before = 6pt
+\renewcommand{\baselinestretch}{1.5} % Đặt giãn dòng 1.5 lines
+
+\begin{document}
+\newgeometry{top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm}
+\subfile{cover} % Phần bìa
+\restoregeometry
+
+\newpage
+\pagenumbering{gobble} % Xóa page numbering ở cuối trang
+\tableofcontents % Mục lục
+\newpage
+\listoffigures % Danh sách các hình ảnh
+\newpage
+\listoftables % Danh sách bảng biểu
+
+\newpage
+\pagenumbering{arabic}
+\subfile{chapters/intro}
+
+\newpage
+\chapter{CƠ SỞ LÝ THUYẾT}
+\subfile{chapters/chap1-co_so_ly_thuyet}
+
+\chapter{VẬN DỤNG THUẬT TOÁN VÀO PHÂN TÍCH TẬP DỮ LIỆU}
+\subfile{chapters/chap2-ap_dung_thuat_toan}
+
+\part*{TÀI LIỆU THAM KHẢO}
+\addcontentsline{toc}{chapter}{Tài liệu tham khảo}
+\end{document}
