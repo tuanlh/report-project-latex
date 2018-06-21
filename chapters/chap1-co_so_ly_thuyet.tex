@@ -69,11 +69,68 @@ Còn \textbf{biến ngẫu nhiên liên tục} có thể định nghĩa là các
 \subsection{Xác suất có điều kiện}
 Dựa vào phổ điểm của các học sinh, liệu ta có thể tính được xác suất để một học sinh được điểm 10 môn Lý, biết rằng học sinh đó được điểm 1 môn Toán (ai cũng có quyền hy vọng). Hoặc biết rằng bây giờ đang là tháng 7, tính xác suất để nhiệt độ hôm nay cao hơn 30 độ C.
 
-Xác suất có điều kiện (\textbf{conditional probability}) của một biến ngẫu nhiên $x$ biết rằng biến ngẫu nhiên $y$ có giá trị $y^{*}$ được ký hiệu là $p(x\ |\ y = y^{*})$ (đọc là \textit{probability of} $x$ \textit{given tha}t $y$ \textit{takes value} $y^{*}$).
+Xác suất có điều kiện (\textbf{conditional probability}) của một biến ngẫu nhiên $x$ biết rằng biến ngẫu nhiên $y$ có giá trị $y^{*}$ được ký hiệu là $p(x | y = y^{*})$ (đọc là ``\textit{xác suất của} $x$ \textit{biết} $y$ \textit{có giá trị} $y^{*}$'' - \textit{probability of} $x$ \textit{given that} $y$ \textit{takes value} $y^{*}$ ).
 
+Xác suất có điều kiện \(p(x | y = y^*)\) có thể được tính dựa trên \textit{joint probobability} \(p(x, y)\) \footnote{Xác suất hợp (\textit{Joint probability}) là xác suất của hai biến cố cùng xảy ra.}. Tổng quát ta có công thức để tính như sau:
+
+\begin{equation}
+  p(x | y = y^*) = \frac{p(x, y = y^*)}{\sum_{x} p(x, y = y^*)} = \frac{p(x, y = y^*)}{p(y = y^*)}
+\end{equation}
+
+Thông thường, ta có thể viết xác suất có điều kiện mà không cần chỉ rõ giá trị \(y = y^*\) và có công thức gọn hơn:
+
+\begin{equation}
+	p(x | y) = \frac{p(x, y)}{p(y)}
+\end{equation}
+  
+Tương tự:
+
+\begin{equation}
+  p(y | x) = \frac{p(y, x)}{p(x)}
+\end{equation}
+
+Và ta sẽ có quan hệ:
+
+\begin{equation} \label{eq:join_prob}
+  p(x, y) = p(x | y)p(y) = p(y | x)p(x)
+\end{equation}
+
+Khi có nhiều hơn hai biến ngẫu nhiên, ta có các công thức:
+
+
+\begin{eqnarray}
+  p(x, y, z, w)
+  & = & p(x, y, z | w) p(w) \\
+  & = & p(x, y | z, w)p(z, w) = p(x, y | z, w) p(z | w) p(w) \quad \\
+  & = & p(x | y, z, w)p(y | z, w)p(z | w) p(w) \label{eq:conditional_prob}
+\end{eqnarray}
+
+Công thức \(\ref{eq:conditional_prob}\) có dạng chuỗi (\textit{chain}) và được sử dụng nhiều sau này.
 
 \subsection{Quy tắc Bayes}
+Công thức (\ref{eq:join_prob}) biểu diễn \textit{joint probability} theo hai cách. Từ đây ta có thể suy ra quan hệ giữa hai \textit{conditional probabilities} \(p(x |y)\) và \(p(y | x)\):
 
+\[
+  p(y | x) p(x) = p(x | y) p(y)
+\]
+
+Biến đối một chút:
+
+
+\begin{eqnarray}
+  p(y | x)
+  & = & \frac{p(x | y) p(y)}{p(x)} \label{eq:bayes_1} \\
+  & = & \frac{p(x | y) p(y)}{\sum_{y} p(x, y)} \\
+  & = & \frac{p(x |y) p(y)}{\sum_{y} p(x | y) p(y)} \quad \label{eq:bayes_2}
+\end{eqnarray}
+
+Từ (\ref{eq:bayes_2}) ta có thể thấy rằng \(p(y | x)\) hoàn toàn có thể tính được nếu ta biết mọi \(p(x | y)\) và \(p(y)\). Tuy nhiên, việc tính trực tiếp xác suất này thường là phức tạp. Thay vào đó, ta có thể đi tìm mô hình phù hợp của \(p(\mathbf{x} | y)\) trên training data sao cho \textit{những gì đã thực sự xảy ra có xác suất cao nhất có thể}. Dựa trên training data, các tham số của mô hình này có thể tìm được qua một \textit{bài toán tối ưu}.\\
+
+\noindent\fbox{
+    \parbox{\textwidth}{Ba công thức (\ref{eq:bayes_1}) - (\ref{eq:bayes_2}) thường được gọi là Quy tắc Bayes (Bayes’ rule). Quy tắc này rất quan trọng trong Machine Learning!}
+    }\\
+
+Trong Machine Learning, chúng ta thường mô tả quan hệ giữa hai biến \(x\) và \(y\) dưới dạng xác suất có điều kiện \(p(x|y)\). Ví dụ, biết rằng đầu vào là một bức ảnh ở dạng vector \(\vec{x}\), xác suất để bức ảnh chứa một chiếc xe là bao nhiêu. Khi đó, ta phải tính \(p(y | \vec{x})\).
 \subsection{Kỳ vọng}
 
 \subsection{Một vài phân phối xác suất thường gặp}
