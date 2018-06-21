@@ -1,10 +1,10 @@
 \documentclass[../main-report.tex]{subfiles}
 \begin{document}
 \section{Một số lý thuyết về xác suất}
-% Tham khảo: https://viblo.asia/p/ly-thuyet-xac-suat-co-ban-su-dung-trong-machine-learning-naQZR78Plvx
+% Tham khảo: https://machinelearningcoban.com/2017/07/09/prob/
 Có thể nói một điều rằng lý thuyết xác suất là một trong những lý thuyết quan trọng nhất của khoa học hiện đại và đặc biệt là \textbf{Machine Learning} bởi vì đa phần các thuật toán của Machine Learning đều có cơ sở dựa trên xác suất.
 
-Phần bên dưới chúng tôi trình bày chủ yếu một số lý thuyết cơ bản được chúng tôi tìm hiểu và tổng hợp từ \citep{viblo:xacsuat}
+Phần bên dưới chúng tôi trình bày chủ yếu một số lý thuyết cơ bản được chúng tôi tìm hiểu và tổng hợp từ \citep{MLCB:xacsuat}
 \subsection{Không gian xác suất}
 Khi nói đến xác suất là người ta nói đến các lý thuyết toán học về sự \textit{bất định - uncertainly} hay nói một cách khác, xác suất biểu thị khả năng xảy ra của các \textit{sự kiện - event} trong một môi trường bất định nào đó. Ví dụ chúng ta xét về xác suất có mưa hay không có mưa vào thứ hai tuần tới, xác suất tỏ tình thành công hay thất bại của cậu bạn thân,\ldots Tóm lại cứ nói đến xác suất là đề cập đến sự không chắc chắn hay bất định đó.
 
@@ -28,6 +28,7 @@ Giống như ví dụ ở phía trên, khi \textit{không gian mẫu - outcomes 
 \item \textbf{Xác suất toàn cục - trivial event} $P(\Omega) = 1$
 \item \textbf{Tính cộng - additivity} tức là với mọi $x, y \in F$ nếu như $x\cap y= \varnothing$ thì ta có $P(x\cup y) = P(x) + P(y)$
 \end{itemize}
+
 \subsection{Biến ngẫu nghiên}
 \textbf{Biến ngẫu nghiên (Random Variables)} là một thành phần quan trọng trong lý thuyết xác suất. Nó biểu diễn giá trị của các đại lượng không xác định, thông thường nó được coi như một ánh xạ từ tập các \textbf{outcomes} trong không gian mẫu thành các giá trị thực.
 
@@ -50,9 +51,10 @@ X = \left\{\begin{array}{ll}
 Có nghĩa là cùng một biến cố nhưng biểu diễn nó như thế nào là việc của mỗi chúng ta. Biến ngẫu nhiên $X$ biểu diễn như biểu thức (\ref{eq:ex_rand_var}) được gọi là \textit{binary random variables - biến nhị phân}. Biến nhị phân được sử dụng rất thông dụng trong thực tế công việc nhất là Machine Learning và thường được biết đến với cái tên \textbf{indicator variables} nó thể hiện s\textit{ự xảy ra hay không xảy ra} của một sự kiện.
 
 \subsubsection*{Biến ngẫu nhiên rời rạc và biến ngẫu nhiên liên tục}
-Có hai loại biến ngẫu nhiên đó là \textbf{BNN rời rạc} và \textbf{BNN liên tục}.
+Có hai loại biến ngẫu nhiên đó là \textbf{BNN rời rạc} (discrete) và \textbf{BNN liên tục} (continuous).
 
-\textbf{Rời rạc} có thể hiểu một cách đơn giản là giá trị của nó thuộc vào một tập định trước. Trong Machine Learning các giá trị này tương ứng với \textit{các phân lớp (class)}. Ví dụ tung xúc sắc bên trên là một điển hình của biến ngẫu nhiên rời rạc và hàm xác suất của nó được định nghĩa như sau:
+\textbf{Rời rạc} có thể hiểu một cách đơn giản là giá trị của nó thuộc vào một tập định trước. 
+Ví dụ tung đồng xu thì có hai khả năng là head và tail \footnote{Tên gọi này bắt nguồn từ đồng xu Mỹ, một mặt có hình mặt người, được gọi là \textit{head}, trái ngược với mặt này được gọi là mặt \textit{tail}, cách gọi này hay hơn cách gọi \textit{xấp ngử}a vì ta không có quy định rõ ràng thế nào là xấp ngay ngửa}. Tập các giá trị này có thể là có thứ tự (khi tung xúc xắc) hoặc không có thứ tự (unorderd), ví dụ khi đầu ra là các giá trị \textit{nắng, mưa, bão},\ldots. Mỗi đầu ra có một giá trị xác suất tương ứng với nó. Trong Machine Learning các giá trị này tương ứng với \textit{các phân lớp (class)}. Các giá trị xác suất này không âm và có tổng bằng một:
 
 \begin{equation}
 \sum_{\forall x}{p(x)}=1 
