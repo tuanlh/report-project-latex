@@ -2,7 +2,7 @@
 \begin{document}
 \section{Một số lý thuyết về xác suất}
 % Tham khảo: https://machinelearningcoban.com/2017/07/09/prob/
-Có thể nói một điều rằng lý thuyết xác suất là một trong những lý thuyết quan trọng nhất của khoa học hiện đại và đặc biệt là \textbf{Machine Learning} bởi vì đa phần các thuật toán của Machine Learning đều có cơ sở dựa trên xác suất.
+Có thể nói một điều rằng lý thuyết xác suất là một trong những lý thuyết quan trọng nhất của khoa học hiện đại và đặc biệt là \textbf{machine learning} bởi vì đa phần các thuật toán của Machine Learning đều có cơ sở dựa trên xác suất.
 
 Phần bên dưới chúng tôi trình bày chủ yếu một số lý thuyết cơ bản được chúng tôi tìm hiểu và tổng hợp từ \citep{MLCB:xacsuat}
 \subsection{Không gian xác suất}
@@ -16,10 +16,13 @@ Về mặt toán học, người ta kí hiệu một \textbf{không gian xác su
 \item $P$ là xác suất (hoặc phân phối xác suất) của sự kiện. $P$ ánh xạ một sự kiện $E \in F$ vào trong một giá trị thực $p \in \left [ 0;1 \right ]$. Ở đây chúng ta gọi $p = P(E)$ là xác suất của sự kiện $E$.
 \end{itemize}
 
-\subsubsection*{Ví dụ minh họa}
+
 Chúng ta cùng nhau xem xét một ví dụ khá kinh điển trong lý thuyết xác suất đó chính là ví dụ \textbf{tung xúc sắc}.
 
+\begin{example}
 Giả sử rằng chúng ta tung một con xúc sắc 6 mặt. Không gian các \textbf{outcomes} có thể xảy ra trong trường hợp này là $\Omega = \left \{ 1, 2, 3, 4, 5, 6 \right \}$ - chúng ta không tính đến các trường hợp xúc sắc rơi lơ lửng tức là không thuộc mặt nào. Không gian các sự kiện $F$ sẽ tùy thuộc vào sự định nghĩa của chúng ta. Ví dụ chúng ta định nghĩa sự kiện xúc sắc là mặt chẵn hoặc mặt lẻ thì không gian sự kiện $F=\left \{ \varnothing , \left \{ 1, 3, 5 \right \}, \left \{ 2, 4, 6 \right \}, \Omega \right \}$ trong đó $\varnothing$ là sự kiện có xác suất 0 - hay còn gọi là biến cố \textit{không thể có}. $\Omega$ là sự kiện có xác suất 1 - hay còn gọi là \textit{biến cố chắc chắn}.
+\end{example}
+
 \subsection{Các tính chất xác suất}
 Giống như ví dụ ở phía trên, khi \textit{không gian mẫu - outcomes space} là hữu hạn thì chúng ta thường lựa chọn không gian sự kiện $F=2^{\Omega} = \left \{ \varnothing , \left \{ 1, 3, 5 \right \}, \left \{ 2, 4, 6 \right \}, \Omega \right \}$. Cách tiếp cận này chưa hẳn đã tổng quát hóa cho mọi trường hợp tuy nhiên nó đủ dùng trong các bài toán thực tế, tất nhiên là với giả thiết không gian mẫu của chúng ta là \textbf{hữu hạn}. Khi không gian mẫu là\textbf{ vô hạn - infinite} chúng ta phải hết sức cẩn thận trong việc lựa chọn không gian sự kiện $F$. Khi đã định nghĩa được không gian sự kiện $F$ thì hàm xác suất của chúng ta bắt buộc phải thỏa mãn các tính chất sau đây:
 
@@ -270,8 +273,75 @@ Chúng ta có thể hiểu đơn giản định nghĩa ở trên như sau:
 
 \textbf{Machine learning} là một lĩnh vực nhỏ của trí tuệ nhân tạo (\textit{Artificial Intelligence - AI}) trong khoa học máy tính, nó thường sử dụng các kĩ thuật thống kê để máy tính có khả năng `học' với dữ liệu, mà không cần phải lập trình cụ thể.
 
-\subsection{Phân loại}
+Tên gọi \emph{machine learning} được đặt bởi Arthur Samuel \footnote{Arthur Lee Samuel (1901 – 1990) là một nhà tiên phong người Mỹ trong lĩnh vực trò chơi máy tính và trí tuệ nhân tạo} năm 1959. Phát triển từ nghiên cứu về nhận dạng mẫu (\emph{pattern recognition}) và lý thuyết học tính toán (\emph{Computational learning theory}) trong trí tuệ nhân tạo, machine learning nghiên cứu và xây dựng các thuật toán có thể học hỏi và dự đoán theo hướng dữ liệu.
 
+Machine learning có mối quan hệ rất mật thiết đối với thống kê (\textit{statistics}). Machine learning sử dụng các mô hình thống kê để ``ghi nhớ'' lại sự phân bố của dữ liệu. Tuy nhiên, không đơn thuần là ghi nhớ, machine learning phải có khả năng \textbf{tổng quát hóa} những gì đã được nhìn thấy và đưa ra dự đoán cho những trường hợp chưa được nhìn thấy. Bạn có thể hình dung một mô hình machine learning không có khả năng tổng quát như một đứa trẻ học vẹt: chỉ trả lời được những câu trả lời mà nó đã học thuộc lòng đáp án. Khả năng tổng quát là một khả năng tự nhiên và kì diệu của con người: bạn không thể nhìn thấy tất cả các khuôn mặt người trên thế giới nhưng bạn có thể nhận biết được một thứ có phải là khuôn mặt người hay không với xác suất đúng gần như tuyệt đối. Đỉnh cao của machine learning sẽ là mô phỏng được khả năng tổng quát hóa và suy luận này của con người.
+
+\subsection{Phân nhóm thuật toán cơ bản}
+Trong phần này, chúng tôi trình bày các nhóm thuật toán trong machine learning theo phương thức học. Gồm có 4 nhóm cơ bản sau: học có giám sát (\emph{Supervise learning}), học không giám sát (\emph{Unsupervised learning}), học bán giám sát (\emph{Semi-supervised lerning}) và học củng cố (\emph{Reinforcement learning}).
+
+\subsubsection*{Học có giám sát (\emph{Supervise learning})}
+\textbf{Supervised learning} là thuật toán dự đoán đầu ra (\emph{outcome}) của một dữ liệu mới dựa trên các cặp (\emph{input, outcome}) đã biết từ trước. Cặp dữ liệu này còn được gọi là (\emph{data, label}), tức (dữ liệu, nhãn). Supervised learning là nhóm phổ biến nhất trong các thuật toán Machine Learning.
+
+Supervised learning là khi chúng ra có một tập hợp biến đầu vào (\emph{data}) \( \mathcal{X} = \{\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_N\} \) và một tập hợp nhãn (\emph{label}) tương ứng \( \mathcal{Y} = \{\mathbf{y}_1, \mathbf{y}_2, \dots, \mathbf{y}_N\} \), trong đó \( \mathbf{x}_i, \mathbf{y}_i \) là các vector. 
+
+Các cặp dữ liệu biết trước \( (\mathbf{x}_i, \mathbf{y}_i) \in \mathcal{X} \times \mathcal{Y} \) 
+được gọi là tập dữ liệu huấn luyện (\emph{training data}). Từ tập traing data này, chúng ta cần tạo ra \textbf{một hàm số ánh xạ} mỗi phần tử từ tập \(\mathcal{X}\) sang một phần tử (xấp xỉ) tương ứng của tập \(\mathcal{Y}\):
+
+\[ \mathbf{y}_i \approx f(\mathbf{x}_i), ~~ \forall i = 1, 2, \dots, N\] 
+
+Mục đích là xấp xỉ hàm số \(f\) thật tốt để khi có một dữ liệu \(\mathbf{x}\) mới, chúng ta có thể tính được nhãn tương ứng của nó \( \mathbf{y} = f(\mathbf{x}) \).
+
+\begin{example} \label{ex:supervised_learning}
+Thuật toán dò các khuôn mặt trong một bức ảnh đã được phát triển từ rất lâu. Thời gian đầu, Facebook sử dụng thuật toán này để \emph{chỉ ra các khuôn mặt trong một bức ảnh} và yêu cầu người dùng tag friends - tức gán nhãn cho mỗi khuôn mặt. Số lượng cặp dữ liệu (\emph{khuôn mặt, tên người}) càng lớn, độ chính xác ở những lần tự động tag tiếp theo sẽ càng lớn.
+\end{example}
+
+Thuật toán supervised learning còn được tiếp tục chia nhỏ ra thành hai loại chính tùy thuộc vào label của dữ liệu:
+
+\begin{itemize}
+\item \textbf{Phân loại (Classification)}
+
+Một bài toán được gọi là \emph{classification} nếu các label của input data được chia thành một số hữu hạn nhóm. Ví dụ \ref{ex:supervised_learning} thuộc loại này.
+
+\item \textbf{Hồi quy (Regression)}
+
+Nếu label không được chia thành các nhóm mà là một giá trị thực cụ thể.
+
+\begin{example}
+Một căn nhà rộng \(x ~ \text{m}^2\), có \(y\) phòng ngủ và cách trung tâm thành phố \(z~ \text{km}\) sẽ có giá là bao nhiêu?
+\end{example}
+\end{itemize}
+
+\subsubsection*{Học không giám sát (\emph{Unsupervised learning})}
+Trong thuật toán này, chúng ta không biết được \emph{outcome} hay \emph{nhãn} mà chỉ có dữ liệu đầu vào. Thuật toán unsupervised learning sẽ dựa vào cấu trúc của dữ liệu để thực hiện một công việc nào đó, ví dụ như phân nhóm (clustering) hoặc giảm số chiều của dữ liệu (dimension reduction) để thuận tiện trong việc lưu trữ và tính toán.
+
+Unsupervised learning là khi chúng ta chỉ có dữ liệu vào \(\mathcal{X} \) mà không biết nhãn \(\mathcal{Y}\) tương ứng.
+
+Những thuật toán loại này được gọi là Unsupervised learning vì không giống như Supervised learning, chúng ta không biết câu trả lời chính xác cho mỗi dữ liệu đầu vào. Giống như khi ta học, không có thầy cô giáo nào chỉ cho ta biết đó là chữ A hay chữ B. Cụm \emph{không giám sát} được đặt tên theo nghĩa này.
+
+Các bài toán Unsupervised learning được tiếp tục chia nhỏ thành hai loại:
+
+\begin{itemize}
+\item \textbf{Phân nhóm (clustering)}
+
+Một bài toán phân nhóm toàn bộ dữ liệu \(\mathcal{X}\) thành các nhóm nhỏ dựa trên sự liên quan giữa các dữ liệu trong mỗi nhóm. Ví dụ: phân nhóm khách hàng dựa trên hành vi mua hàng. Điều này cũng giống như việc ta đưa cho một đứa trẻ rất nhiều mảnh ghép với các hình thù và màu sắc khác nhau, ví dụ tam giác, vuông, tròn với màu xanh và đỏ, sau đó yêu cầu trẻ phân chúng thành từng nhóm. Mặc dù không cho trẻ biết mảnh nào tương ứng với hình nào hoặc màu nào, nhiều khả năng chúng vẫn có thể phân loại các mảnh ghép theo màu hoặc hình dạng.
+
+\item \textbf{Association}
+
+Là bài toán khi chúng ta muốn khám phá ra một quy luật dựa trên nhiều dữ liệu cho trước. Ví dụ: những khách hàng nam mua quần áo thường có xu hướng mua thêm đồng hồ hoặc thắt lưng; những khán giả xem phim Spider Man thường có xu hướng xem thêm phim Bat Man, dựa vào đó tạo ra một hệ thống gợi ý khách hàng (Recommendation System), thúc đẩy nhu cầu mua sắm.
+\end{itemize}
+
+\subsubsection*{Học bán giám sát (\emph{Semi-Supervised learning})}
+Các bài toán khi chúng ta có một lượng lớn dữ liệu \(\mathcal{X}\) nhưng chỉ một phần trong chúng được gán nhãn được gọi là Semi-Supervised Learning. Những bài toán thuộc nhóm này nằm giữa hai nhóm được nêu bên trên.
+
+Một ví dụ điển hình của nhóm này là chỉ có một phần ảnh hoặc văn bản được gán nhãn (ví dụ bức ảnh về người, động vật hoặc các văn bản khoa học, chính trị) và phần lớn các bức ảnh/văn bản khác chưa được gán nhãn được thu thập từ internet. Thực tế cho thấy rất nhiều các bài toán Machine Learning thuộc vào nhóm này vì việc thu thập dữ liệu có nhãn tốn rất nhiều thời gian và có chi phí cao. Rất nhiều loại dữ liệu thậm chí cần phải có chuyên gia mới gán nhãn được (ảnh y học chẳng hạn). Ngược lại, dữ liệu chưa có nhãn có thể được thu thập với chi phí thấp từ internet.
+
+\subsubsection*{Học củng cố (\emph{Reinforcement learning})}
+Reinforcement learning là các bài toán giúp cho một hệ thống tự động xác định hành vi dựa trên hoàn cảnh để đạt được lợi ích cao nhất (maximizing the performance). Hiện tại, Reinforcement learning chủ yếu được áp dụng vào Lý Thuyết Trò Chơi (Game Theory), các thuật toán cần xác định nước đi tiếp theo để đạt được điểm số cao nhất.
+
+\begin{example}
+AlphaGo gần đây nổi tiếng với việc chơi cờ vây thắng cả con người. Cờ vây được xem là có độ phức tạp cực kỳ cao với tổng số nước đi là xấp xỉ \(10^{761} \), so với cờ vua là \(10^{120} \) và tổng số nguyên tử trong toàn vũ trụ là khoảng \(10^{80}\). Vì vậy, thuật toán phải chọn ra 1 nước đi tối ưu trong số hàng nhiều tỉ tỉ lựa chọn, và tất nhiên, không thể áp dụng thuật toán tương tự như \emph{IBM Deep Blue} \footnote{Deep Blue là một máy tính chơi cờ vua do IBM phát triển. Deep Blue đã chiến thắng trận đấu đầu tiên của mình với một nhà vô địch thế giới vào ngày 10 tháng 2 năm 1996}. Về cơ bản, \textbf{AlphaGo} bao gồm các thuật toán thuộc cả \emph{Supervised learning} và \emph{Reinforcement learning}. Trong phần Supervised learning, dữ liệu từ các ván cờ do con người chơi với nhau được đưa vào để huấn luyện. Tuy nhiên, mục đích cuối cùng của AlphaGo không phải là chơi như con người mà phải thậm chí thắng cả con người. Vì vậy, sau khi học xong các ván cờ của con người, AlphaGo tự chơi với chính nó với hàng triệu ván chơi để tìm ra các nước đi mới tối ưu hơn. Thuật toán trong phần tự chơi này được xếp vào loại Reinforcement learning. 
+\end{example}
 \section{Thuật toán Decision Tree}
 \subsection{Giới thiệu}
 Sắp đến kỳ thi, một cậu sinh viên tự đặt ra quy tắc \textit{học hay chơi} của mình như sau:
