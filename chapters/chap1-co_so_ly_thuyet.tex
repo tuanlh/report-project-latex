@@ -124,16 +124,139 @@ Biến đối một chút:
   & = & \frac{p(x |y) p(y)}{\sum_{y} p(x | y) p(y)} \quad \label{eq:bayes_2}
 \end{eqnarray}
 
-Từ (\ref{eq:bayes_2}) ta có thể thấy rằng \(p(y | x)\) hoàn toàn có thể tính được nếu ta biết mọi \(p(x | y)\) và \(p(y)\). Tuy nhiên, việc tính trực tiếp xác suất này thường là phức tạp. Thay vào đó, ta có thể đi tìm mô hình phù hợp của \(p(\mathbf{x} | y)\) trên training data sao cho \textit{những gì đã thực sự xảy ra có xác suất cao nhất có thể}. Dựa trên training data, các tham số của mô hình này có thể tìm được qua một \textit{bài toán tối ưu}.\\
+Từ (\ref{eq:bayes_2}) ta có thể thấy rằng \(p(y | x)\) hoàn toàn có thể tính được nếu ta biết mọi \(p(x | y)\) và \(p(y)\). Tuy nhiên, việc tính trực tiếp xác suất này thường là phức tạp. Thay vào đó, ta có thể đi tìm mô hình phù hợp của \(p(\mathbf{x} | y)\) trên training data sao cho \textit{những gì đã thực sự xảy ra có xác suất cao nhất có thể}. Dựa trên training data, các tham số của mô hình này có thể tìm được qua một \textit{bài toán tối ưu}.
 
-\noindent\fbox{
-    \parbox{\textwidth}{Ba công thức (\ref{eq:bayes_1}) - (\ref{eq:bayes_2}) thường được gọi là Quy tắc Bayes (Bayes’ rule). Quy tắc này rất quan trọng trong Machine Learning!}
-    }\\
+\textbf{Ba công thức (\ref{eq:bayes_1}) - (\ref{eq:bayes_2}) thường được gọi là Quy tắc Bayes (Bayes' rule). Quy tắc này rất quan trọng trong Machine Learning!}
 
 Trong Machine Learning, chúng ta thường mô tả quan hệ giữa hai biến \(x\) và \(y\) dưới dạng xác suất có điều kiện \(p(x|y)\). Ví dụ, biết rằng đầu vào là một bức ảnh ở dạng vector \(\vec{x}\), xác suất để bức ảnh chứa một chiếc xe là bao nhiêu. Khi đó, ta phải tính \(p(y | \vec{x})\).
-\subsection{Kỳ vọng}
 
+\subsubsection*{Độc lập (Independence)}
+Nếu biết giá trị của một biến ngẫu nhiên \(x\) không mang lại thông tin về việc suy ra giá trị của biến ngẫu nhiên \(y\) (và ngược lại), thì ta nói rằng hai biến ngẫu nhiên là \emph{độc lập} (independence). Chẳng hạn, chiều cao của một học sinh và điểm thi môn Toán của học sinh đó có thể coi là hai biến ngẫu nhiên độc lập.
+
+Khi hai biến ngẫu nhiên \(x\) và \(y\) là \emph{độc lập}, ta sẽ có:
+
+
+\begin{eqnarray}
+  p(x | y) &=& p(x) \quad \\
+  p(y | x) &=& p(y)
+\end{eqnarray}
+
+
+Thay vào biểu thức Conditional Probability trong (\ref{eq:join_prob}), ta có:
+
+\begin{equation}
+	p(x, y) = p(x | y) p(y) = p(x) p(y)
+\end{equation}
+
+
+\subsection{Kỳ vọng}
+\textbf{Kỳ vọng (expectation)} của một biến ngẫu nhiên được định nghĩa là:
+
+
+\begin{eqnarray}
+  \text{E}[x] = \sum_x x p(x) \quad & \text{if}~ x ~ \text{is discrete} \quad \\
+  \text{E}[x] = \int x p(x) dx \quad & \text{if}~ x ~ \text{is continuous}
+\end{eqnarray}
+
+Giả sử \(f\) là một hàm số trả về một giá trị với mỗi giá trị \(x^*\) của biến ngẫu nhiên \(x\). Khi đó, nếu \(x\) là biến ngẫu nhiên rời rạc, ta sẽ có:
+
+\begin{equation}
+	\text{E}[f(x)] = \sum_x f(x) p(x)
+\end{equation}
+
+Công thức cho biến ngẫu nhiên liên tục cũng được viết tương tự.
+
+Với joint probability:
+
+\begin{equation}
+\text{E}[f(x, y)] = \sum_{x,y} f(x, y) p(x, y) dx dy
+\end{equation}
+
+Có 3 quy tắc cần nhớ về kỳ vọng:
+
+\begin{enumerate}
+\item Kỳ vọng của một hằng số theo một biến ngẫu nhiên \(x\) bất kỳ bằng chính hằng số đó:
+
+\begin{equation}
+\text{E}[\alpha] = \alpha
+\end{equation}
+
+\item Kỳ vọng có tính chất tuyến tính:
+
+\begin{eqnarray}
+  \text{E}[\alpha x] & = & \alpha \text{E}[x] \quad \\
+  \text{E}[f(x) + g(x)] & = & \text{E}[f(x)] + \text{E}[g(x)]
+\end{eqnarray}
+
+\item Kỳ vọng của tích hai biến ngẫu nhiên bằng tích kỳ vọng của hai biến đó \textbf{nếu hai biến ngẫu nhiên đó là độc lập}. Điều ngược lại không đúng:
+
+\begin{equation}
+\text{E}[f(x) g(y)] = \text{E}[f(x)] \text{E}[g(y)]
+\end{equation}
+
+\end{enumerate}
 \subsection{Một vài phân phối xác suất thường gặp}
+\subsubsection*{Phân phối Bernouli}
+\textbf{Phân phối Bernoulli (Bernouli distribution)} là một phân bố rời rạc mô tả biến ngẫu nhiên nhị phân: nó mô tả trường hợp khi đầu ra chỉ nhận một trong hai giá trị \(x \in \{0, 1\}\). Hai giá trị này có thể là \emph{head} và \emph{tail} khi tung đồng xu; có thể là \emph{fraud transaction} và \emph{normal transaction} trong bài toán xác định giao dịch lừa đảo trong tín dụng; có thể là \emph{người} và \emph{không phải người} trong bài toán tìm xem trong một bức ảnh có người hay không.
+
+Bernoulli distribution được mô tả bằng một tham số \(\lambda \in [0, 1]\) và là xác suất để \(x = 1\). Phân bố của mỗi đầu ra sẽ là:
+
+\begin{equation}
+p(x = 1) = \lambda, ~~~~ p(x = 0) = 1 - p(x = 1) = 1 - \lambda
+\end{equation}
+
+Hai đẳng thức này thường được viết gọn lại:
+
+\begin{equation}
+p(x) = \lambda^x (1 - \lambda)^{1 - x}
+\end{equation}
+
+với giả định rằng \(0 ^0 = 1\).
+
+Bernoulli distribution được ký hiệu ngắn gọn dưới dạng:
+\[
+  p(x) = \text{Bern}_x [\lambda]
+\]
+
+\subsubsection*{Phân phối tổng quát của Bernouli (Categorical distribution)}
+Cũng là biến ngẫu nhiên rời rạc, nhưng trong hầu hết các trường hợp, đầu ra có thể là một trong nhiều hơn hai giá trị khác nhau. Ví dụ, một bức ảnh có thể chứa một chiếc xe, một người, hoặc một con mèo. Khi đó, ta dùng phân bố tổng quát của Bernoulli distribution và được gọi là \emph{Categorical distribution}. Các đầu ra được mô tả bởi 1 phần tử trong tập \(\{1, 2, \dots, K\}\).
+
+Nếu có \(K\) đầu ra có thể đạt được, Categorical distribution sẽ được mô tả bởi \(K\) tham số, viết dưới dạng vector: \(\lambda = [\lambda_1, \lambda_2, \dots, \lambda_K]\) với các \(\lambda_k\) không âm và có tổng bằng 1. Mỗi giá trị \(\lambda_k\) thể hiện xác suất để đầu ra nhận giá trị \(k\):
+
+\[
+  p(x = k) = \lambda_k
+\]
+
+Viết gọn lại:
+
+\[
+  p(x) = \text{Cat}_x [\lambda]
+\]
+
+Biểu diễn theo cách khác, ta có thể coi như đầu ra là một vector ở dạng \emph{one-hot} vector, tức \(\mathbf{x} \in \{\mathbf{e}_1, \mathbf{e}_2, \dots, \mathbf{e}_K\}\) với \(\mathbf{e}_k\) là vector đơn vị thứ \(k\), tức tất cả các phần tử bằng 0, trừ phần tử thứ \(k\) bằng 1. Khi đó, ta sẽ có:
+
+\begin{equation}
+p(\mathbf{x} = \mathbf{e}_k) = \prod_{j=1}^K \lambda_j^{x_j} = \lambda_k
+\end{equation}
+
+Cách viết này được sử dụng rất nhiều trong Machine Learning.
+
+\subsubsection*{Phân phối chuẩn một biến (Univariate normal distribution)}
+\textbf{Phân phối chuẩn 1 biến (univariate normal hoặc Gaussian distribution)} được định nghĩa trên các biến liên tục nhận giá trị \(x \in (-\infty, \infty)\).
+
+Phân phối này được mô tả bởi hai tham số: \emph{mean} \(\mu\) và \emph{variance} \(\sigma^2\). Giá trị \(\mu\) có thể là bất kỳ số thực nào, thể hiện vị trí của \emph{peak}, tức tại đó mà hàm mật độ xác suất đạt giá trị cao nhất. Giá trị \(\sigma^2\) là một giá trị dương, với \(\sigma\) thể hiện \emph{độ rộng} của phân bố này. \(\sigma\) lớn chứng tỏ khoảng giá trị đầu ra biến đổi mạnh, và ngược lại.
+
+Hàm mật độ xác suất của phân phối này được định nghĩa là:
+
+\begin{equation}
+  p(x) = \frac{1}{\sqrt{2\pi \sigma^2}}\exp \left( -\frac{(x - \mu)^2}{2\sigma^2}\right)
+\end{equation}
+
+Dạng gọn hơn:
+
+\begin{equation}
+p(x) = \text{Norm}_x [\mu, \sigma^2]
+\end{equation}
 
 \section{Giới thiệu máy học}
 \subsection{Khái niệm}
