@@ -70,6 +70,9 @@ pdfmenubar=false % Ẩn đi menu bar trong PDF viewer
 \setlength{\parskip}{6pt} % Đặt khoảng cách giữa các đoạn => After = Before = 6pt
 \renewcommand{\baselinestretch}{1.5} % Đặt giãn dòng 1.5 lines
 
+\setcounter{secnumdepth}{3} % Cho phép subsubsection trong report
+\setcounter{tocdepth}{3} % Chèn subsubsection vào bảng mục lục
+
 \theoremstyle{definition}
 \newtheorem{example}{Ví dụ}[chapter]
 
@@ -87,7 +90,6 @@ pdfmenubar=false % Ẩn đi menu bar trong PDF viewer
 \newpage
 \listoftables % Danh sách bảng biểu
 \newpage
-
 
 \newpage
 \pagenumbering{arabic}
