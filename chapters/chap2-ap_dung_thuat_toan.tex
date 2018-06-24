@@ -1,7 +1,33 @@
 \documentclass[../main-report.tex]{subfiles}
 \begin{document}
+
 \section{Tập dữ liệu được sử dụng để training}
+Dữ liệu dùng cho giai đoạn train xây dựng cây mà chúng tôi sử dụng là tập dữ liệu CSIC \footnote{\textbf{CISC} (viết tắt của \emph{Consejo Superior de Investigaciones Científicas} theo tiếng Tây Ban Nha) là tổ chức cộng đồng lớn nhất dành cho nghiên cứu ở Tây Ban Nha, và lớn thứ 3 ở Châu Âu. Tổ chức này tạo ra 20\% trong tổng số bài báo khoa học trong nước.} 2010.
+
+Tập dữ liệu \textbf{HTTP CSIC 2010} chứa những lưu lượng nhắm đến những ứng dụng web thương mại điện tử phát triển tại bộ phận của CSIC. Trong ứng dụng web này, người dùng có thể mua những món đồ bằng cách sử dụng những thẻ mua sắm và đăng ký bằng cách cung cấp một vài thông tin cá nhân. Bởi vì ứng dụng web này ở Tây Ban Nha nên tập dữ liệu chứa những ký tự Latin.
+
+Tập dữ liệu này được tạo tự động và chứa khoảng 36.000 những request bình thường và hơn 25.000 request bất thường. HTTP request được gán nhãn \emph{bình thường} hoặc \emph{bất thường}. Tập dữ liệu bao gồm những dạng tấn công như: \emph{SQL injection, Bufer overflow, information gathering, files disclosure, CRLF injection, XSS, server side include, parameter tampering,} \ldots. Tập dữ liệu này đã thành công trong việc sử dụng để phát hiện tấn công web.
+
+Lưu lượng web này được tạo ra bằng các bước sau:
+
+\begin{itemize}
+\item Đầu tiên, dữ liệu thật được thu thập giành cho tất cả các tham số của ứng dụng web. Tất cả các dữ liệu này (như: \emph{tên, họ, địa chỉ,}\ldots) được lấy chính xác từ cơ sở dữ liệu thực tế. Những giá trị này được lưu trữ trong hai cơ sở dữ liệu: một cho \textbf{normal} (\emph{bình thường}) và cái còn lại cho \textbf{anomalous} (\emph{bất bình thường}). Ngoài ra, tất cả các trang của ứng dụng web cũng được liệt kê.
+
+\item Kế đó, những \emph{requests normal} và \emph{anomalous} được tạo cho mỗi trang của web. Trong trường hợp requests normal có những tham số, những giá trị tham số này được lắp đầy với dữ liệu được lấy từ Databases (cơ sơ dữ liệu) normal một cách ngẫu nhiên. Quá trình xử lý tương tự với requests anomalous,nơi giá trị tham số được lấy từ Databases anomalous.
+\end{itemize}
+
+Có ba loại \textbf{requests anomalous} được quan tâm:
+
+\begin{itemize}
+\item \textbf{Static attacks:} cố gắng truy cập vào các tài nguyên bị ẩn. Những requests này bao gồm: những tập tin ít dùng, \emph{Session ID} trong URL rewrite, những tập tin cấu hình, những tập tin mặc định, \ldots
+\item \textbf{Dynamic attacks:} chỉnh lại những tham số hợp lệ của request để thực hiện các cuộc tấn công \emph{SQL injection, CRLF injection, cross-site scripting,  buffer overflows}, \ldots
+\item \textbf{Unintentional illegel requests}: những requests này không cố ý chứa những thứ độc hại, tuy nhiên họ không tuân theo những hành vi bình thường của ứng dụng web và không có cấu trúc như những tham số bình thường. Ví dụ trường (field) nhập số điện thoại có kiểu là \emph{số} nhưng người dùng lại vào đó là \emph{ký tự}).
+\end{itemize}
+
+Tập dữ liệu này được chia thành ba phần khác nhau. Một phần cho giai đoạn \emph{training}, nơi chỉ chứa những traffic normal. Và hai phần còn lại được dùng cho giai đoạn \emph{kiểm tra}, một với những traffic normal, một với những traffic malicious (lưu lượng độc hại).
 
 \section{Thực hiện áp dụng thuật toán vào tập dữ liệu}
+
+\section{Kết luận và phương hướng phát triển}
 
 \end{document}

@@ -406,7 +406,52 @@ Tùy vào loại Decision tree sử dụng mà ta có ưu nhược điểm riên
 \end{itemize}
 
 Trong bài báo cáo này chúng tôi sử dụng loại \textbf{CART}. Do tính đơn giản, dể tiếp cận của nó, cũng như những giá trị feature mà ta sử dụng là kiểu dữ liệu biến liên tục không phải phân loại nên không dùng \textbf{ID3} được. Và đây là loại decision tree được thư viện \textit{scikit-learn} chọn sử dụng.
-\subsection{Làm sạch dữ liệu}
+\subsection{Một số khái niệm}
+\subsubsection{Entropy}
+\textbf{Entropy} là khái niệm được dùng trong vật lý, toán học, khoa học máy tính ( lý thuyết thông tin) và nhiều lĩnh vực khoa học khác. Dùng để chỉ độ bừa bộn của dữ liệu.
+
+Ta có hình \ref{fig:entropy_1} với tập dữ liệu khởi đầu gồm các điểm dữ liệu xanh (có hình ``+'') và đỏ (có hình ``o'') nằm lẫn lộn vơi nhau. Mỗi điểm dữ liều gồn nhiều đặc tính. Dựa trên những đặt tính này cây bắt đầu tính toán để chọn đặc tính tiêu biểu nhất, chia tập ban đầu thành hai tập con \textbf{Set 1} và \textbf{Set 2}
+
+\begin{figure}[ht!]
+\centering\includegraphics[scale=0.5]{entropy_1}
+\caption{Tập dữ liệu khởi đầu với dữ liệu lộn xộn}
+\label{fig:entropy_1}
+\end{figure}
+
+Sao cho hầu hết những điểm dữ liệu màu đỏ nằm trong \textbf{Set 1}, và phần lớn dữ liệu màu xanh nằm trong \textbf{Set 2}. Cây quyết định ở đây đang cố gắng xếp các dữ liệu một cách gọn gàng bằng vector đặc tính ứng với mỗi điểm dữ liệu. Dựa vào giá trị này quyêt định điểm nào thuộc về lá nào. Và giá trị entropy được tính để xác định đặc tính nào cho ra độ không sạch thấp nhất để chọn đặt tính đó.
+
+\textbf{Cách tính giá trị entropy}
+
+Giả sử ta có một tập $N$ phần tử. Mỗi phần tử có thể thuộc vào nhãn 1 hoặc nhãn 2. Ta có $n$ phần tử \emph{thuộc nhãn 1} và $m = N - n$ phần tử \emph{thuộc nhãn 2}. 
+
+\begin{itemize}
+\item Xác xuất nhãn $1$: $p = \frac{n}{N}$
+\item Xác xuất nhãn $2$: $q = \frac{m}{N} = 1 - p $
+\end{itemize}
+
+Ký kiệu Entropy là $E$:
+
+\begin{equation}
+E = -p\log _2(p) - q\log _2(q)
+\end{equation}
+
+Một tập là gọn ràng, sạch sẽ nếu nó chỉ chứa cách phần tử cùng loại. Và bừa bộn, không sạch nếu nó chứa trộn lẫn nhiều loại dữ liệu. Ta nhìn vào công thức Entropy nếu không có điểm dữ liệu nào mang nhãn 1 ($p = 0$) hoặc ngược lại toàn bộ dữ liệu đều thuộc nhãn 1 ($p = 1$), khi đó entropy = 0. Nếu một nửa nhãn 1 ($p =  \frac{1}{2}$)và một nửa nhãn 2 ($ q = \frac{1}{2}$). Khi đó entropy đạt giá trị tối đa bằng 1.
+
+\begin{figure}[ht!]
+\centering\includegraphics[scale=0.8]{entropy_2}
+\caption[Đồ thị entropy cho biến 2 trạng thái]{Đồ thị entropy cho biến 2 trạng thái với xác suất trạng thái $p$ và $q$ với $p + q = 1$}
+\label{fig:entropy_2}
+\end{figure}
+
+Từ đó ta có công thức tổng quát để tính giá trị entropy như sau:
+
+\begin{equation}
+E(S) = -\sum_{i=1}^n p_i \log(p_i)
+\end{equation}
+
+Với $S$ là tập dữ liệu, $p_i$ là tỉ lệ các điểm dữ liệu nhãn $i$ thuộc tập $S$.
+\subsubsection{Gini index}
+
 
 \subsection{Quá trình xây dựng cây}
 
