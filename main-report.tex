@@ -18,8 +18,9 @@
 \usepackage{pdflscape} % Đưa các bảng có kích thước đặt theo chiều ngang giấy
 \usepackage{afterpage}
 \usepackage{capt-of} % Cho phép sử dụng caption lớn đối với landscape page
+\usepackage{multirow} % Merge cells
 \usepackage{fancyhdr} % Cho phép tùy biến header và footer
-\usepackage[natbib,backend=biber]{biblatex} % Giúp chèn tài liệu tham khảo
+\usepackage[natbib,backend=biber,style=ieee]{biblatex} % Giúp chèn tài liệu tham khảo
 
 \bibliography{bibliography/main.bib} % chèn file chứa danh mục tài liệu tham khảo vào 
 
@@ -105,5 +106,6 @@ pdfmenubar=false % Ẩn đi menu bar trong PDF viewer
 
 \addcontentsline{toc}{chapter}{Tài liệu tham khảo}
 \nocite{*} % Tùy chọn cho phép in tất cả danh mục tài liệu tham khảo, kể cả tài liệu không được tham chiếu
+\pagestyle{plain}
 \printbibliography % In ra danh mục tài liệu tham khảo
 \end{document}
