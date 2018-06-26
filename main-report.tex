@@ -75,7 +75,7 @@ pdfmenubar=false % Ẩn đi menu bar trong PDF viewer
 \setcounter{tocdepth}{3} % Chèn subsubsection vào bảng mục lục
 
 \theoremstyle{definition}
-\newtheorem{example}{Ví dụ}[chapter]
+\newtheorem{example}{Ví dụ}[chapter] % Định nghĩa môi trường ví dụ
 
 \begin{document}
 \newgeometry{top=2cm, bottom=2cm, left=2cm, right=2cm}
@@ -104,6 +104,7 @@ pdfmenubar=false % Ẩn đi menu bar trong PDF viewer
 \chapter[ÁP DỤNG THUẬT TOÁN]{VẬN DỤNG THUẬT TOÁN VÀO PHÂN TÍCH TẬP DỮ LIỆU}
 \subfile{chapters/chap2-ap_dung_thuat_toan}
 
+\newpage
 \addcontentsline{toc}{chapter}{Tài liệu tham khảo}
 \nocite{*} % Tùy chọn cho phép in tất cả danh mục tài liệu tham khảo, kể cả tài liệu không được tham chiếu
 \pagestyle{plain}

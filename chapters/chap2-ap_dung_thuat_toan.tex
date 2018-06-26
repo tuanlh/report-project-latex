@@ -151,7 +151,7 @@ SaveModel(MatrixData, "MatrixData.pkl")
 Hàm \textbf{read\_file} sẽ đọc lần lược file ``normalTrafficTraining.txt''  là tập dữ liệu gồm những request bình thường và  ``anomalousTrafficTest.txt'' là tập dữ liệu gồm những request bất thường. Hàm \textbf{processFile} trả về một ma trận, các dòng trong ma trận là các điểm dữ liệu được trích xuất từ HTTP request và số dòng của ma trận. Ma trận này gồm 7 cột, 6 cột đầu tương ứng với các đặc tính được trình bài ở trên. Cột thứ 7 là nhãn của dữ liệu gồm 0 hoặc 1 tương ứng bình thường hay bất thường.
 
 \subsection{Phân tách training data và test data}
-Ta tiến hành chia dữ liệu thành hai phần. Phần 1 gồm dữ liệu dùng để huấn luyện, chiếm 80\% dữ liệu. Phần 2 gồm dữ liệu cho quá trình kiểm tra độ chính xác chếm 20\% dữ liệu.
+Ta tiến hành chia dữ liệu thành hai phần. Phần 1 gồm dữ liệu dùng để huấn luyện, chiếm 80\% dữ liệu. Phần 2 gồm dữ liệu cho quá trình kiểm tra độ chính xác chiếm 20\% dữ liệu.
 
 Đoạn code Python sau được dùng để phân tách dữ liệu ra 2 phần:
 
