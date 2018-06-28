@@ -751,12 +751,13 @@ Dữ liệu giá trị thuộc dạng số thì ta tính trung bình các giá t
 \item Trong quá trình dự đoán ta có thể chỉ rõ nhánh kế tiếp được để đưa dữ liệu vào khi giá trị điểm dữ liệu tại nhánh đó bị thiếu.
 
 \begin{example}
-Theo trong tình là mô hình dự đoán tính an toàn của đơn mượn nợ tại ngân hàng. Giả sử điểm dữ liệu đầu vào bị thiếu giá trị đặc tính \textbf{Term}. Nếu giá trị của \textbf{Credit} là \emph{fair}, ta mặc định sẽ dự đoán đơn mượn nợ này là \textbf{Risky}. Nhưng nếu Credit là \emph{poor}, Income là hight mặc định sẽ dự đoán đơn mượn nợ này \textbf{Safe}.
+Theo trong hình \ref{fig:ex_term_problem} là mô hình dự đoán tính an toàn của đơn mượn nợ tại ngân hàng. Giả sử điểm dữ liệu đầu vào bị thiếu giá trị đặc tính \textbf{Term}. Nếu giá trị của \textbf{Credit} là \emph{fair}, ta mặc định sẽ dự đoán đơn mượn nợ này là \textbf{Risky}. Nhưng nếu Credit là \emph{poor}, Income là hight mặc định sẽ dự đoán đơn mượn nợ này \textbf{Safe}.
 \end{example}
 
 \begin{figure}[ht!]
 \centering\includegraphics{example_problem}
 \caption{Ví dụ về đoán dữ liệu để thêm vào thuộc tính Term}
+\label{fig:ex_term_problem}
 \end{figure}
 
 \begin{itemize}
