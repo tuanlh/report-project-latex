@@ -21,10 +21,15 @@
 \usepackage{multirow} % Merge cells
 \usepackage{fancyhdr} % Cho phép tùy biến header và footer
 \usepackage[natbib,backend=biber,style=ieee]{biblatex} % Giúp chèn tài liệu tham khảo
+\usepackage[acronym, nonumberlist]{glossaries}
+\usepackage{setspace}
+\usepackage{parskip}
 
 \bibliography{bibliography/main.bib} % chèn file chứa danh mục tài liệu tham khảo vào 
 
 \include{lstlisting} % Phần này cho phép chèn code và formatting code như C, C++, Python
+
+\input{glossary/main}
 
 \pagestyle{fancy}
 
@@ -43,11 +48,14 @@
 \titleclass{\part}{top}
 \titleformat{\part}[display]
   {\normalfont\huge\bfseries}{\centering}{20pt}{\Huge\centering}
-\titlespacing*{\part}{0pt}{50pt}{40pt}
+\titlespacing{\part}{0pt}{2em}{1em}
+\titlespacing{\section}{0pt}{\parskip}{0.5\parskip}
+\titlespacing{\subsection}{0pt}{\parskip}{0.5\parskip}
+\titlespacing{\subsubsection}{0pt}{\parskip}{0.5\parskip}
 
 \usepackage[pdftex, % Sử dụng PDF TeX
 bookmarks=true, % Tạo bookmarks trong tập tin PDF
-colorlinks=true, % Chữ có màu
+colorlinks=false, % Chữ có màu
 pdfencoding=auto, % Tự động điều chỉnh encoding của PDF
 unicode=true, % Sử dụng Unicode
 pdffitwindow=true, % Fit cho vừa cửa sổ
@@ -68,14 +76,15 @@ pdfmenubar=false % Ẩn đi menu bar trong PDF viewer
 \title{\bf \TITLE}
 \author{\AUTHOR}
 
-\setlength{\parskip}{6pt} % Đặt khoảng cách giữa các đoạn => After = Before = 6pt
-\renewcommand{\baselinestretch}{1.5} % Đặt giãn dòng 1.5 lines
-
 \setcounter{secnumdepth}{3} % Cho phép subsubsection trong report
 \setcounter{tocdepth}{3} % Chèn subsubsection vào bảng mục lục
 
 \theoremstyle{definition}
 \newtheorem{example}{Ví dụ}[chapter] % Định nghĩa môi trường ví dụ
+
+\onehalfspacing
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{15pt}
 
 \begin{document}
 \newgeometry{top=2cm, bottom=2cm, left=2cm, right=2cm}
@@ -90,7 +99,11 @@ pdfmenubar=false % Ẩn đi menu bar trong PDF viewer
 \listoffigures % Danh sách các hình ảnh
 \newpage
 \listoftables % Danh sách bảng biểu
-\newpage
+
+\glsaddall 
+%\renewcommand*{\glossaryname}{Danh mục thuật ngữ}%
+\renewcommand*{\acronymname}{Danh mục từ viết tắt}
+\printnoidxglossaries
 
 \newpage
 \pagenumbering{arabic}
@@ -101,8 +114,8 @@ pdfmenubar=false % Ẩn đi menu bar trong PDF viewer
 \chapter{CƠ SỞ LÝ THUYẾT}
 \subfile{chapters/chap1-co_so_ly_thuyet}
 
-\chapter[ÁP DỤNG THUẬT TOÁN]{VẬN DỤNG THUẬT TOÁN VÀO PHÂN TÍCH TẬP DỮ LIỆU}
-\subfile{chapters/chap2-ap_dung_thuat_toan}
+\chapter{HƯỚNG TIẾP CẬN VÀ THỰC NGHIỆM}
+\subfile{chapters/chap2-thuc_nghiem}
 
 \newpage
 \addcontentsline{toc}{chapter}{Tài liệu tham khảo}
