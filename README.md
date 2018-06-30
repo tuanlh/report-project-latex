@@ -9,4 +9,6 @@ Các hình ảnh được chứa trong thư mục **figures/**
 
 Danh mục tài liệu tham khảo được chứa trong thư mục **bibilography/**
 
+Danh mục các thuật ngữ và từ viết tắt được chứa trong thư mục **glossary/**
+
 File output ra PDF ở **main-report.pdf**
