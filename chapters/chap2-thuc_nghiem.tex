@@ -4,7 +4,7 @@
 \section{Tập dữ liệu được sử dụng để huấn luyện}
 Dữ liệu dùng cho giai đoạn xây dựng cây là tập dữ liệu CSIC 2010 \footnote{\textbf{CISC} (viết tắt của \emph{Consejo Superior de Investigaciones Científicas} theo tiếng Tây Ban Nha) là tổ chức cộng đồng lớn nhất dành cho nghiên cứu ở Tây Ban Nha, và lớn thứ 3 ở Châu Âu. Tổ chức này tạo ra 20\% trong tổng số bài báo khoa học trong nước.}.
 
-Tập dữ liệu \textbf{HTTP CSIC 2010} chứa những traffic nhắm đến những ứng dụng web thương mại điện tử phát triển tại CSIC. Tập dữ liệu này được tạo tự động và chứa khoảng 36.000 những request bình thường và hơn 25.000 request bất thường đã được gán nhãn. Tập dữ liệu bao gồm những dạng tấn công như: \emph{SQL injection, Bufer overflow, information gathering, files disclosure, CRLF injection, \acrshort{xss}, server side include, parameter tampering,} \ldots.
+Tập dữ liệu \textbf{HTTP CSIC 2010} chứa những traffic nhắm đến những ứng dụng web thương mại điện tử phát triển tại CSIC. Tập dữ liệu này được tạo tự động và chứa khoảng 36.000 những request bình thường và hơn 25.000 request bất thường đã được gán nhãn. Tập dữ liệu bao gồm những dạng tấn công như: \emph{SQL injection, Bufer overflow, information gathering, files disclosure, CRLF injection, XSS, server side include, parameter tampering,} \ldots.
 
 Lưu lượng web này được tạo ra bằng các bước sau:
 
@@ -18,7 +18,7 @@ Có ba loại \textbf{requests anomalous} được quan tâm:
 
 \begin{itemize}
 \item \textbf{Static attacks:} cố gắng truy cập vào các tài nguyên bị ẩn. Những requests này bao gồm: những tập tin ít dùng, \emph{Session ID} trong URL rewrite, những tập tin cấu hình, những tập tin mặc định, \ldots
-\item \textbf{Dynamic attacks:} chỉnh lại những tham số hợp lệ của request để thực hiện các cuộc tấn công \emph{SQL injection, CRLF injection, \acrshort{xss}, buffer overflows}, \ldots
+\item \textbf{Dynamic attacks:} chỉnh lại những tham số hợp lệ của request để thực hiện các cuộc tấn công \emph{SQL injection, CRLF injection, XSS, buffer overflows}, \ldots
 \item \textbf{Unintentional illegel requests}: những requests này không cố ý chứa những thứ độc hại, tuy nhiên họ không tuân theo những hành vi bình thường của ứng dụng web và không có cấu trúc như những tham số bình thường. Ví dụ trường (field) nhập số điện thoại có kiểu là \emph{số} nhưng người dùng lại nhập vào đó là \emph{ký tự}.
 \end{itemize}
 
@@ -301,7 +301,7 @@ Kết quả sau khi điều chỉnh tham số được xuất ra như ở hình 
 Ở phần này cũng thực hiện cập nhật lại mô hình cây vào tập tin \textbf{ModelDecisionTree.pkl} để thuận tiện cho việc dùng lại mô hình.
 
 \section{Kết luận và hướng phát triển}
-Báo cáo này đã chỉ ra một phương pháp mới, tiên tiến hơn để phát hiện tấn công ứng dụng web. Đó là áp dụng \gls{ml} để giải quyết bài toán với thuật toán cây quyết định, họ \acrshort{cart}. Kết quả quan sát được rất tốt, dựa vào tập dữ liệu CSIC 2010 với xác suất dự đoán kiểm thử đạt gần 90\%.
+Báo cáo này đã chỉ ra một phương pháp mới, tiên tiến hơn để phát hiện tấn công ứng dụng web. Đó là áp dụng \gls{ml} để giải quyết bài toán với thuật toán cây quyết định, họ CART. Kết quả quan sát được rất tốt, dựa vào tập dữ liệu CSIC 2010 với xác suất dự đoán kiểm thử đạt gần 90\%.
 
 Nhược điểm là những đặc tính được chọn để hình thành vector chưa khai khác hết những gì tập dữ liệu CSIC mang lại. Do chưa có kiến thức đủ vững về giao thức HTTP cũng như các loại tấn công nên những trường dữ liệu như: user-agent, pragma, cache, accept, cookie, \ldots chưa được khai thác triệt để. Còn nhiều loại thuật toán phân loại khác như: \emph{Naive Bayes, Logistic Regression, Support Vector Machne, Random Forest}, \ldots là những thuật toán cơ bản, nổi tiếng không kém cây quyết định. Nhưng vì thời gian có hạn nên chưa thể triển khai trên các thuật toán này.
 

@@ -255,7 +255,7 @@ Trong tiếng Anh có định nghĩa về \gls{ml} như sau:
 
 Định nghĩa trên có thể hiểu đơn giản như sau: 
 
-\textbf{\Gls{ml}} là một lĩnh vực nhỏ của trí tuệ nhân tạo - \emph{\acrfull{ai}} trong khoa học máy tính, thường sử dụng các kĩ thuật thống kê để máy tính có khả năng ``học'' với dữ liệu, mà không cần phải lập trình cụ thể.
+\textbf{\Gls{ml}} là một lĩnh vực nhỏ của trí tuệ nhân tạo - \emph{Artificial Intelligence (AI)} trong khoa học máy tính, thường sử dụng các kĩ thuật thống kê để máy tính có khả năng ``học'' với dữ liệu, mà không cần phải lập trình cụ thể.
 
 Tên gọi \emph{machine learning} được đặt bởi Arthur Samuel \footnote{Arthur Lee Samuel (1901 – 1990) là một nhà tiên phong người Mỹ trong lĩnh vực trò chơi máy tính và trí tuệ nhân tạo} năm 1959. Phát triển từ nghiên cứu về nhận dạng mẫu (\emph{pattern recognition}) và lý thuyết học tính toán (\emph{Computational learning theory}) trong trí tuệ nhân tạo, \gls{ml} nghiên cứu và xây dựng các thuật toán có thể học hỏi và dự đoán theo hướng dữ liệu.
 
@@ -358,9 +358,9 @@ Cây quyết định là một mô hình \textit{supervised learning}, có thể
 Có 3 loại cây quyết định phổ biến sau:
 
 \begin{itemize}
-\item \textbf{\acrfull{id3}} - Tạo cây nhiều chiều, tìm cho mỗi node một đặc tính phân loại sao cho đặc tính này có giá trị ``information gain'' lớn nhất. Cây được phát triển tới mức tối đa kích thước. Sau đó áp dụng phương thức cắt tỉa cành để xử lý những dữ liệu chưa nhìn thấy.
-\item \textbf{C4.5} - Kế thừa từ \acrshort{id3} nhưng loại bỏ hạn chế về việc chỉ sử dụng đặc tính có giá trị phân loại bằng cách tự động định nghĩa một thuộc tính rời rạc. Dùng để phân chia những thuộc tính liên tục thành những tập rời rạc.
-\item \textbf{\acrfull{cart}} - Tương tự như C4.5, nhưng nó hỗ trợ thêm đối tượng dự đoán là giá trị số (\emph{\gls{regression}}). Cấu trúc \acrshort{cart} dạng cây nhị phân, mỗi nút sử dụng một ngưỡng để đạt được ``information gain'' lớn nhất.
+\item \textbf{Iterative Dichotomiser 3 (ID3)} - Tạo cây nhiều chiều, tìm cho mỗi node một đặc tính phân loại sao cho đặc tính này có giá trị ``information gain'' lớn nhất. Cây được phát triển tới mức tối đa kích thước. Sau đó áp dụng phương thức cắt tỉa cành để xử lý những dữ liệu chưa nhìn thấy.
+\item \textbf{C4.5} - Kế thừa từ ID3 nhưng loại bỏ hạn chế về việc chỉ sử dụng đặc tính có giá trị phân loại bằng cách tự động định nghĩa một thuộc tính rời rạc. Dùng để phân chia những thuộc tính liên tục thành những tập rời rạc.
+\item \textbf{Classification and Regression Trees (CART)} - Tương tự như C4.5, nhưng nó hỗ trợ thêm đối tượng dự đoán là giá trị số (\emph{\gls{regression}}). Cấu trúc CART dạng cây nhị phân, mỗi nút sử dụng một ngưỡng để đạt được ``information gain'' lớn nhất.
 \end{itemize}
 
 %Hình \ref{fig:decision_tree_type_comparison} so sánh giữa các loại thuật toán decision tree.
@@ -789,19 +789,19 @@ Khi \(k\) bằng với số lượng phần tử trong tập training ban đầu
 
 Scikit-learn \footnote{\textbf{Scikit-learn} (hay \emph{sklearn}) là thư viện nguồn mở hỗ trợ rất tốt cho machine learning trong Python.} hỗ trợ rất nhiều phương thức cho phân chia dữ liệu và tính toán \emph{scores} của các mô hình.
 \section{Một số lỗ hổng tấn công web phổ biến}
-Việc tìm hiểu các hình thức tấn công web và một số lỗ hổng phổ biến trên ứng dụng web góp phần nào để hiểu được cách thức để nhận dạng một traffic là bình thường hay bất thường. Khi đó, mới có thể khai thác tốt được các đặc trưng của tập dữ liệu được sử dụng để huấn luyện. Thông thường một traffic bất thường sẽ chứa những pattern (mẫu) của các lỗ hổng tấn công, thường những lỗ hổng phổ biến sẽ có những pattern rõ ràng. Chính vì vậy, hai lỗ hổng phổ biến nhất trong ứng dụng web là \emph{SQL injection} và \emph{\acrshort{xss}} được chọn để trình bày.
+Việc tìm hiểu các hình thức tấn công web và một số lỗ hổng phổ biến trên ứng dụng web góp phần nào để hiểu được cách thức để nhận dạng một traffic là bình thường hay bất thường. Khi đó, mới có thể khai thác tốt được các đặc trưng của tập dữ liệu được sử dụng để huấn luyện. Thông thường một traffic bất thường sẽ chứa những pattern (mẫu) của các lỗ hổng tấn công, thường những lỗ hổng phổ biến sẽ có những pattern rõ ràng. Chính vì vậy, hai lỗ hổng phổ biến nhất trong ứng dụng web là \emph{SQL injection} và \emph{XSS} được chọn để trình bày.
 \subsection{SQL Injection}
 Đa số ứng dụng web ngày nay đều quản lý và đáp ứng các yêu cầu truy xuất dữ liệu
-thông qua ngôn ngữ truy vấn cấu trúc SQL. Các hệ quản trị \acrfull{csdl} thông dụng
+thông qua ngôn ngữ truy vấn cấu trúc SQL. Các hệ quản trị Cơ Sở Dữ Liệu (CSDL) thông dụng
 như Oracle, MS SQL hay MySQL đều có chung một đặc điểm này, chính vì vậy những
 dạng tấn công liên quan đến SQL thường được xếp hàng đầu trong danh sách các lỗ hổng nguy hiểm nhất, và dạng tấn công vào những lỗi này gọi là SQL injection.
 
-SQL injection là một kỹ thuật cho phép những kẻ tấn công lợi dụng lỗ hổng của việc kiểm tra dữ liệu đầu vào trong các ứng dụng web và các thông báo lỗi của hệ quản trị \acrshort{csdl} trả về để inject (tiêm vào) và thi hành các câu lệnh SQL bất hợp pháp. SQL injection có thể cho phép những kẻ tấn công thực hiện các thao tác như \emph{delete}, \emph{insert}, \emph{update}, \ldots trên \acrshort{csdl} của ứng dụng, thậm chí là server mà ứng dụng đó đang chạy. SQL injection thường được biết đến như là một vật trung gian tấn công trên các ứng dụng web có dữ liệu được quản lý bằng các hệ quản trị \acrshort{csdl} như SQL Server, MySQL, Oracle, DB2, Sysbase, \ldots.
+SQL injection là một kỹ thuật cho phép những kẻ tấn công lợi dụng lỗ hổng của việc kiểm tra dữ liệu đầu vào trong các ứng dụng web và các thông báo lỗi của hệ quản trị CSDL trả về để inject (tiêm vào) và thi hành các câu lệnh SQL bất hợp pháp. SQL injection có thể cho phép những kẻ tấn công thực hiện các thao tác như \emph{delete}, \emph{insert}, \emph{update}, \ldots trên CSDL của ứng dụng, thậm chí là server mà ứng dụng đó đang chạy. SQL injection thường được biết đến như là một vật trung gian tấn công trên các ứng dụng web có dữ liệu được quản lý bằng các hệ quản trị CSDL như SQL Server, MySQL, Oracle, DB2, Sysbase, \ldots.
 
 Sau đây là một số lỗi thường gặp với SQL injection kèm theo ví dụ để rõ hơn về loại tấn công này:
 
 \subsubsection*{Không kiểm tra kí tự thoát truy vấn}
-Đây là dạng lỗi SQL injection xảy ra khi thiếu đoạn mã kiểm tra dữ liệu đầu vào trong câu truy vấn SQL. Kết quả là người dùng cuối có thể thực hiện một số truy vấn không mong muốn với \acrshort{csdl} của ứng dụng.
+Đây là dạng lỗi SQL injection xảy ra khi thiếu đoạn mã kiểm tra dữ liệu đầu vào trong câu truy vấn SQL. Kết quả là người dùng cuối có thể thực hiện một số truy vấn không mong muốn với CSDL của ứng dụng.
 
 \begin{example}
 Dòng mã dưới đây sẽ minh họa cho lỗi này như sau:
@@ -817,7 +817,7 @@ Câu lệnh trên được thiết kế để trả về các bản ghi tên ng�
 ' OR '1'='1
 \end{lstlisting}
 
-Hoặc có thể sử dụng comment để loại bỏ các kí tự phía sau. Bên dưới là 3 loại comment khác nhau tùy vào hệ quản trị \acrshort{csdl}:
+Hoặc có thể sử dụng comment để loại bỏ các kí tự phía sau. Bên dưới là 3 loại comment khác nhau tùy vào hệ quản trị CSDL:
 
 \begin{lstlisting}
 ' OR '1'='1' --
@@ -862,14 +862,14 @@ Có thể nhận thấy một cách rõ ràng ý định của tác giả đoạ
 1;DROP TABLE users
 \end{lstlisting}
 
-Khi đó sẽ thực hiện thao tác xóa bảng \textbf{users} khỏi \acrshort{csdl}, vì câu truy vấn hoàn chỉnh đã được hiểu là:
+Khi đó sẽ thực hiện thao tác xóa bảng \textbf{users} khỏi CSDL, vì câu truy vấn hoàn chỉnh đã được hiểu là:
 
 \begin{lstlisting}[language=SQL]
 SELECT * FROM data WHERE id=1;DROP TABLE users;
 \end{lstlisting}
 
 \subsubsection*{Lỗi bảo mật bên trong máy chủ cơ sở dữ liệu}
-Đôi khi lỗ hổng có thể tồn tại chính trong phần mềm máy chủ \acrshort{csdl}, như là trường hợp hàm \textbf{mysql\_real\_escape\_string()} của các máy chủ MySQL. Điều này sẽ cho phép kẻ tấn công có thể thực hiện một cuộc tấn công SQL injection thành công dựa trên những ký tự Unicode \emph{không thông thường} ngay cả khi đầu vào đang được thoát.
+Đôi khi lỗ hổng có thể tồn tại chính trong phần mềm máy chủ CSDL, như là trường hợp hàm \textbf{mysql\_real\_escape\_string()} của các máy chủ MySQL. Điều này sẽ cho phép kẻ tấn công có thể thực hiện một cuộc tấn công SQL injection thành công dựa trên những ký tự Unicode \emph{không thông thường} ngay cả khi đầu vào đang được thoát.
 
 \subsubsection*{Blind SQL injection}
 Lỗi SQL injection dạng này là dạng lỗi tồn tại ngay trong ứng dụng web nhưng hậu quả của chúng lại không hiển thị trực quan cho những kẻ tấn công. Lỗi này có thể gây ra sự sai khác khi hiển thị nội dung của trang. Hậu quả của tấn công SQL injection dạng này khiến cho lập trình viên hay người dùng phải mất rất nhiều thời gian để phục hồi chính xác từng bit dữ liệu. Những kẻ tấn công còn có thể sử dụng một số công cụ để dò tìm lỗi dạng này và tấn công với những thông tin đã được thiết lập sẵn.
@@ -878,11 +878,11 @@ Lỗi SQL injection dạng này là dạng lỗi tồn tại ngay trong ứng d�
 Lỗi SQL injection dạng này tồn tại khi thời gian xử lý của một hay nhiều truy vấn SQL phụ thuộc vào dữ liệu logic được nhập vào hoặc quá trình xử lý truy vấn của SQL engine cần nhiều thời gian. Tin tặc có thể sử dụng lỗi SQL injection dạng này để xác định thời gian chính xác mà trang cần tải khi giá trị nhập vào là đúng.
 
 \subsection{Cross-Site Scripting (XSS)}
-\textbf{\acrfull{xss}} là một lỗ hổng phổ biến trong ứng dụng web. Để khai thác lỗ hổng này, hacker sẽ chèn mã độc (các đoạn script) để thực thi chúng ở phía client. Thông thường, các cuộc tấn công \acrshort{xss} được sử dụng để vượt qua các kiểm soát truy cập và mạo danh người dùng.
+\textbf{Cross-Site Scripting (XSS} là một lỗ hổng phổ biến trong ứng dụng web. Để khai thác lỗ hổng này, hacker sẽ chèn mã độc (các đoạn script) để thực thi chúng ở phía client. Thông thường, các cuộc tấn công XSS được sử dụng để vượt qua các kiểm soát truy cập và mạo danh người dùng.
 
-Có 3 loại \acrshort{xss} cơ bản bao gồm: \emph{Reflected \acrshort{xss}}, \emph{Stored \acrshort{xss}} và \emph{DOM-based \acrshort{xss}}
+Có 3 loại XSS cơ bản bao gồm: \emph{Reflected XSS}, \emph{Stored XSS} và \emph{DOM-based XSS}
 
-\subsubsection*{Reflected \acrshort{xss}}
+\subsubsection*{Reflected XSS}
 Ở dạng tấn công này, hacker sẽ gửi cho nạn nhân một URL có chứa đoạn mã nguy hiểm. Nạn nhân chỉ cần gửi request đến URL này thì hacker sẽ có được kết quả mong muốn. Cụ thể kịch bản này như sau:
 
 \begin{enumerate}
@@ -922,16 +922,16 @@ Kịch bản khai thác trên được mô tả như hình \ref{fig:xss_reflect}
 
 \begin{figure}[ht!]
 \centering\includegraphics[scale=0.6]{xss-reflect}
-\caption{Kịch bản khai thác lỗ hổng Reflected \acrshort{xss}}
+\caption{Kịch bản khai thác lỗ hổng Reflected XSS}
 \label{fig:xss_reflect}
 \end{figure}
 
-\subsubsection*{Stored \acrshort{xss}}
-Khác với Reflected tấn công trực tiếp vào một số nạn nhân mà hacker nhắm đến, Stored \acrshort{xss} hướng đến nhiều nạn nhân hơn. Lỗi này xảy ra khi ứng dụng web không kiểm tra kỹ các dữ liệu đầu vào trước khi lưu vào \acrshort{csdl}. Ví dụ như các biểu mẫu góp ý, các bình luận, \ldots trên các trang web.
+\subsubsection*{Stored XSS}
+Khác với Reflected tấn công trực tiếp vào một số nạn nhân mà hacker nhắm đến, Stored XSS hướng đến nhiều nạn nhân hơn. Lỗi này xảy ra khi ứng dụng web không kiểm tra kỹ các dữ liệu đầu vào trước khi lưu vào CSDL. Ví dụ như các biểu mẫu góp ý, các bình luận, \ldots trên các trang web.
 
-Với kỹ thuật Stored \acrshort{xss}, hacker không khai thác trực tiếp mà phải thực hiện tối thiểu qua 2 bước.
+Với kỹ thuật Stored XSS, hacker không khai thác trực tiếp mà phải thực hiện tối thiểu qua 2 bước.
 
-Đầu tiên hacker sẽ thông qua các điểm đầu vào (form, input, textarea, \ldots) không được kiểm tra kỹ để chèn vào \acrshort{csdl} các đoạn mã nguy hiểm.
+Đầu tiên hacker sẽ thông qua các điểm đầu vào (form, input, textarea, \ldots) không được kiểm tra kỹ để chèn vào CSDL các đoạn mã nguy hiểm.
 
 Tiếp theo, khi người dùng truy cập vào ứng dụng web và thực hiện các thao tác liên quan đến dữ liệu được lưu này, đoạn mã của hacker sẽ được thực thi trên trình duyệt người dùng.
 
@@ -939,21 +939,21 @@ Các bước khai thác được mô tả như ở hình \ref{fig:xss_stored}.
 
 \begin{figure}[ht!]
 \centering\includegraphics[scale=0.5]{xss-stored}
-\caption{Kịch bản khai thác lỗ hổng Stored \acrshort{xss}}
+\caption{Kịch bản khai thác lỗ hổng Stored XSS}
 \label{fig:xss_stored}
 \end{figure}
 
-Reflected \acrshort{xss} và Stored \acrshort{xss} có 2 sự khác biệt lớn trong quá trình tấn công.
+Reflected XSS và Stored XSS có 2 sự khác biệt lớn trong quá trình tấn công.
 
 \begin{itemize}
-\item Thứ nhất, để khai thác Reflected \acrshort{xss}, hacker phải lừa được nạn nhân truy cập vào URL của mình. Còn Stored \acrshort{xss} không cần phải thực hiện việc này, sau khi chèn được mã nguy hiểm vào \acrshort{csdl} của ứng dụng, hacker chỉ việc ngồi chờ nạn nhân tự động truy cập vào. Với nạn nhân, việc này là hoàn toàn bình thường vì họ không hề hay biết dữ liệu mình truy cập đã bị nhiễm độc.
-\item Thứ hai, mục tiêu của hacker sẽ dễ dàng đạt được hơn nếu tại thời điểm tấn công nạn nhân vẫn trong phiên làm việc (session) của ứng dụng web. Với Reflected \acrshort{xss}, hacker có thể thuyết phục hay lừa nạn nhân đăng nhập rồi truy cập đến URL mà hacker cung cấp để thực thi mã độc. Nhưng Stored \acrshort{xss} thì khác, vì mã độc đã được lưu trong \acrshort{csdl} Web nên bất cứ khi nào người dùng truy cập các chức năng liên quan thì mã độc sẽ được thực thi, và nhiều khả năng là những chức năng này yêu cầu phải xác thực (đăng nhập) trước nên hiển nhiên trong thời gian này người dùng vẫn đang trong phiên làm việc.
+\item Thứ nhất, để khai thác Reflected XSS, hacker phải lừa được nạn nhân truy cập vào URL của mình. Còn Stored XSS không cần phải thực hiện việc này, sau khi chèn được mã nguy hiểm vào CSDL của ứng dụng, hacker chỉ việc ngồi chờ nạn nhân tự động truy cập vào. Với nạn nhân, việc này là hoàn toàn bình thường vì họ không hề hay biết dữ liệu mình truy cập đã bị nhiễm độc.
+\item Thứ hai, mục tiêu của hacker sẽ dễ dàng đạt được hơn nếu tại thời điểm tấn công nạn nhân vẫn trong phiên làm việc (session) của ứng dụng web. Với Reflected XSS, hacker có thể thuyết phục hay lừa nạn nhân đăng nhập rồi truy cập đến URL mà hacker cung cấp để thực thi mã độc. Nhưng Stored XSS thì khác, vì mã độc đã được lưu trong CSDL Web nên bất cứ khi nào người dùng truy cập các chức năng liên quan thì mã độc sẽ được thực thi, và nhiều khả năng là những chức năng này yêu cầu phải xác thực (đăng nhập) trước nên hiển nhiên trong thời gian này người dùng vẫn đang trong phiên làm việc.
 \end{itemize}
 
-Từ những điều này có thể thấy Stored \acrshort{xss} nguy hiểm hơn Reflected \acrshort{xss} rất nhiều, đối tượng bị ảnh hưởng có thế là tất cả những người sử dụng ứng dụng web đó. Và nếu nạn nhân có vai trò quản trị thì còn có nguy cơ bị chiếm quyền điều khiển web.
+Từ những điều này có thể thấy Stored XSS nguy hiểm hơn Reflected XSS rất nhiều, đối tượng bị ảnh hưởng có thế là tất cả những người sử dụng ứng dụng web đó. Và nếu nạn nhân có vai trò quản trị thì còn có nguy cơ bị chiếm quyền điều khiển web.
 
-\subsubsection*{DOM Based \acrshort{xss}}
-DOM Based \acrshort{xss} là kỹ thuật khai thác \acrshort{xss} dựa trên việc thay đổi cấu trúc DOM của tài liệu, cụ thể là HTML. 
+\subsubsection*{DOM Based XSS}
+DOM Based XSS là kỹ thuật khai thác XSS dựa trên việc thay đổi cấu trúc DOM của tài liệu, cụ thể là HTML. 
 
 \begin{example}
 Một website có URL đến trang đăng ký như sau:
@@ -967,7 +967,7 @@ Khi truy cập đến thì thấy một Form rất bình thường như ở hìn
 
 \begin{figure}[ht!]
 \centering\includegraphics[scale=0.7]{dombased-xss-1}
-\caption{Giao diện form bình thường của site bị khai thác bởi lỗi DOM Based \acrshort{xss}}
+\caption{Giao diện form bình thường của site bị khai thác bởi lỗi DOM Based XSS}
 \label{fig:xss_dombased_1}
 \end{figure}
 
@@ -987,7 +987,7 @@ Sau đó form bị biến đổi như ở hình \ref{fig:xss_dombased_2}.
 
 \begin{figure}[ht!]
 \centering\includegraphics[scale=0.7]{dombased-xss-2}
-\caption{Giao diện form bị chỉnh sửa của site bị khai thác bởi lỗi DOM Based \acrshort{xss}}
+\caption{Giao diện form bị chỉnh sửa của site bị khai thác bởi lỗi DOM Based XSS}
 \label{fig:xss_dombased_2}
 \end{figure}
 
@@ -995,10 +995,10 @@ Người dùng sẽ chẳng chút nghi ngờ với một form ``bình thường'
 
 \begin{figure}[ht!]
 \centering\includegraphics[scale=0.7]{dombased-xss-3}
-\caption{Đoạn script đã chạy trên site bị khai thác bởi lỗi DOM Based \acrshort{xss}}
+\caption{Đoạn script đã chạy trên site bị khai thác bởi lỗi DOM Based XSS}
 \label{fig:xss_dombased_3}
 \end{figure}
 
-Kịch bản khai thác của lỗi này giống như Reflected \acrshort{xss}, xem ở hình \ref{fig:xss_reflect}.
+Kịch bản khai thác của lỗi này giống như Reflected XSS, xem ở hình \ref{fig:xss_reflect}.
 
 \end{document}

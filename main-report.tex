@@ -21,9 +21,14 @@
 \usepackage{multirow} % Merge cells
 \usepackage{fancyhdr} % Cho phép tùy biến header và footer
 \usepackage[natbib,backend=biber,style=ieee]{biblatex} % Giúp chèn tài liệu tham khảo
-\usepackage[acronym, nonumberlist]{glossaries}
+
+\usepackage[nonumberlist, nopostdot, nogroupskip]{glossaries}
+\usepackage{glossary-superragged}
+\setglossarystyle{superraggedheaderborder}
 \usepackage{setspace}
 \usepackage{parskip}
+
+\setlength{\glsdescwidth}{9cm}
 
 \bibliography{bibliography/main.bib} % chèn file chứa danh mục tài liệu tham khảo vào 
 
@@ -101,9 +106,11 @@ pdfmenubar=false % Ẩn đi menu bar trong PDF viewer
 \listoftables % Danh sách bảng biểu
 
 \glsaddall 
-%\renewcommand*{\glossaryname}{Danh mục thuật ngữ}%
-\renewcommand*{\acronymname}{Danh mục từ viết tắt}
-\printnoidxglossaries
+\renewcommand*{\glossaryname}{Danh sách thuật ngữ}
+\renewcommand*{\acronymname}{Danh sách từ viết tắt}
+\renewcommand*{\entryname}{Tiếng Anh}
+\renewcommand*{\descriptionname}{Tiếng Việt}
+\printnoidxglossary
 
 \newpage
 \pagenumbering{arabic}
