@@ -318,7 +318,7 @@ Là bài toán khi muốn khám phá ra một quy luật dựa trên nhiều d�
 \subsubsection{Học bán giám sát (\emph{Semi-Supervised learning})}
 Khi có một lượng lớn dữ liệu \(\mathcal{X}\) nhưng chỉ một phần trong chúng được gán nhãn được gọi là Semi-Supervised Learning. Những bài toán thuộc nhóm này nằm giữa hai nhóm được nêu bên trên.
 
-Ví dụ điển hình của nhóm này là chỉ có một phần ảnh hoặc văn bản được gán nhãn (ví dụ bức ảnh về người, động vật hoặc các văn bản khoa học, chính trị) và phần lớn các bức ảnh/văn bản khác chưa được gán nhãn được thu thập từ internet. Thực tế cho thấy rất nhiều các bài toán \gls{ml} thuộc vào nhóm này vì việc thu thập dữ liệu có nhãn tốn rất nhiều thời gian và có chi phí cao. Rất nhiều loại dữ liệu thậm chí cần phải có chuyên gia mới gán nhãn được (như ảnh y học là một ví dụ điển hinh). Ngược lại, dữ liệu chưa có nhãn có thể được thu thập với chi phí thấp từ internet.
+Ví dụ điển hình của nhóm này là chỉ có một phần ảnh hoặc văn bản được gán nhãn (ví dụ bức ảnh về người, động vật hoặc các văn bản khoa học, chính trị) và phần lớn các bức ảnh/văn bản khác chưa được gán nhãn được thu thập từ internet. Thực tế cho thấy rất nhiều các bài toán \gls{ml} thuộc vào nhóm này vì việc thu thập dữ liệu có nhãn tốn rất nhiều thời gian và có chi phí cao. Rất nhiều loại dữ liệu thậm chí cần phải có chuyên gia mới gán nhãn được (như ảnh y học là một ví dụ điển hình). Ngược lại, dữ liệu chưa có nhãn có thể được thu thập với chi phí thấp từ internet.
 
 \subsubsection{Học tăng cường (\emph{Reinforcement learning})}
 Reinforcement learning là bài toán giúp cho hệ thống tự động xác định hành vi dựa trên hoàn cảnh để đạt được lợi ích cao nhất (maximizing the performance). Hiện tại, reinforcement learning chủ yếu được áp dụng vào \emph{Lý thuyết trò chơi} (Game Theory), các thuật toán cần xác định nước đi tiếp theo để đạt được điểm số cao nhất.
@@ -358,9 +358,9 @@ Cây quyết định là một mô hình \textit{supervised learning}, có thể
 Có 3 loại cây quyết định phổ biến sau:
 
 \begin{itemize}
-\item \textbf{\acrfull{id3}} - Tạo cây nhiều chiều, tìm cho mỗi node một đặt tính phân loại sao cho đặt tính này có giá trị ``information gain'' lớn nhất. Cây được phát triển tới mức tối đa kích thước. Sau đó áp dụng phương thức cắt tỉa cành để xử lý những dữ liệu chưa nhìn thấy.
+\item \textbf{\acrfull{id3}} - Tạo cây nhiều chiều, tìm cho mỗi node một đặc tính phân loại sao cho đặc tính này có giá trị ``information gain'' lớn nhất. Cây được phát triển tới mức tối đa kích thước. Sau đó áp dụng phương thức cắt tỉa cành để xử lý những dữ liệu chưa nhìn thấy.
 \item \textbf{C4.5} - Kế thừa từ \acrshort{id3} nhưng loại bỏ hạn chế về việc chỉ sử dụng đặc tính có giá trị phân loại bằng cách tự động định nghĩa một thuộc tính rời rạc. Dùng để phân chia những thuộc tính liên tục thành những tập rời rạc.
-\item \textbf{\acrfull{cart}} - Tương tự như C4.5, nhưng nó hỗ trợ thêm đối tượng dự đoán là giá trị số (\emph{\gls{regression}}). Cấu trúc \acrshort{cart} dạng cây nhị phân, mỗi nút sử dụng một ngưỡng để đạt được ``information gian'' lớn nhất.
+\item \textbf{\acrfull{cart}} - Tương tự như C4.5, nhưng nó hỗ trợ thêm đối tượng dự đoán là giá trị số (\emph{\gls{regression}}). Cấu trúc \acrshort{cart} dạng cây nhị phân, mỗi nút sử dụng một ngưỡng để đạt được ``information gain'' lớn nhất.
 \end{itemize}
 
 %Hình \ref{fig:decision_tree_type_comparison} so sánh giữa các loại thuật toán decision tree.
@@ -395,7 +395,7 @@ Bài báo cáo này sử dụng loại \textbf{CART}. Do tính đơn giản và 
 \subsubsection{Độ hỗn loạn và độ lợi thông tin}
 \textbf{Entropy} (độ hỗn loạn) là khái niệm được dùng trong vật lý, toán học, khoa học máy tính (lý thuyết thông tin) và nhiều lĩnh vực khoa học khác. Dùng để chỉ độ bừa bộn của dữ liệu.
 
-Hình \ref{fig:entropy_1} với tập dữ liệu khởi đầu gồm các điểm dữ liệu xanh (có hình ``+'') và đỏ (có hình ``o'') nằm lẫn lộn với nhau. Mỗi điểm dữ liều gồm nhiều đặc tính. Dựa trên những đặc tính này cây bắt đầu tính toán để chọn đặc tính tiêu biểu nhất, chia tập ban đầu thành hai tập con \textbf{Set 1} và \textbf{Set 2}.
+Hình \ref{fig:entropy_1} với tập dữ liệu khởi đầu gồm các điểm dữ liệu xanh (có hình ``+'') và đỏ (có hình ``o'') nằm lẫn lộn với nhau. Mỗi điểm dữ liệu gồm nhiều đặc tính. Dựa trên những đặc tính này cây bắt đầu tính toán để chọn đặc tính tiêu biểu nhất, chia tập ban đầu thành hai tập con \textbf{Set 1} và \textbf{Set 2}.
 
 \begin{figure}[ht!]
 \centering\includegraphics[scale=0.5]{entropy_1}
@@ -420,7 +420,7 @@ Ký kiệu Entropy là $E$:
 E = -p\log _2(p) - q\log _2(q)
 \end{equation}
 
-Một tập là gọn gàng, sạch sẽ nếu nó chỉ chứa cách phần tử cùng loại. Và bừa bộn, không sạch nếu nó chứa trộn lẫn nhiều loại dữ liệu. Ta nhìn vào công thức Entropy nếu không có điểm dữ liệu nào mang nhãn 1 ($p = 0$) hoặc ngược lại toàn bộ dữ liệu đều thuộc nhãn 1 ($p = 1$), khi đó entropy = 0. Nếu một nửa nhãn 1 ($p =  \frac{1}{2}$) và một nửa nhãn 2 ($ q = \frac{1}{2}$). Khi đó entropy đạt giá trị tối đa bằng 1.
+Một tập là gọn gàng, sạch sẽ nếu nó chỉ chứa các phần tử cùng loại. Và bừa bộn, không sạch nếu nó chứa trộn lẫn nhiều loại dữ liệu. Ta nhìn vào công thức Entropy nếu không có điểm dữ liệu nào mang nhãn 1 ($p = 0$) hoặc ngược lại toàn bộ dữ liệu đều thuộc nhãn 1 ($p = 1$), khi đó entropy = 0. Nếu một nửa nhãn 1 ($p =  \frac{1}{2}$) và một nửa nhãn 2 ($ q = \frac{1}{2}$). Khi đó entropy đạt giá trị tối đa bằng 1.
 
 \begin{figure}[ht!]
 \centering\includegraphics[scale=0.8]{entropy_2}
@@ -720,7 +720,7 @@ Như ví dụ ở bảng \ref{tab:data_err}, thuộc tính \textbf{B} bị thi�
 
 Nếu dữ liệu thiếu, chọn dữ liệu xuất hiện nhiều nhất để điền vào những chỗ thiếu.
 
-Dữ liệu giá trị thuộc dạng số thì tính trung bình các giá trị của đặc tính đó rồi thêm vào chỗ bị thiếu.
+Dữ liệu có giá trị thuộc dạng số thì tính trung bình các giá trị của đặc tính đó rồi thêm vào chỗ bị thiếu.
 
 \begin{itemize}
 \item Ưu điểm:
@@ -774,7 +774,7 @@ Chúng ta quen với việc chia tập dữ liệu ra thành hai tập nhỏ: \e
 
 Phương pháp đơn giản nhất là trích từ tập \emph{dữ liệu huấn luyện} ra một tập con nhỏ và thực hiện việc đánh giá mô hình trên tập con nhỏ này. Tập con nhỏ được trích ra từ tập huấn luyện này được gọi là \textbf{validation set}. Lúc này, tập huấn luyện là phần còn lại của tập ban đầu. \emph{Train error} được tính trên tập huấn luyện mới này, và có một khái niệm nữa được định nghĩa tương tự như trên \textbf{validation error}, tức error được tính trên tập validation.
 
-Việc này giống như khi ôn thi. Giả sử không biết đề thi như thế nào nhưng có 10 bộ đề thi từ các năm trước. Để xem trình độ của mình trước khi thi thế nào, có một cách là bỏ riêng một bộ đề ra, không ôn tập gì. Việc ôn tập sẽ được thực hiện dựa trên 9 bộ còn lại. Sau khi ôn tập xong, bỏ bộ đề đã để riêng ra làm thử và kiểm tra kết quả, như thế mới ``khách quan'', mới giống như thi thật. 10 bộ đề ở các năm trước là ``toàn bộ'' tập huấn luyện. Để tránh việc học lệch, học tủ theo chỉ 10 bộ, tách 9 bộ ra làm tập huấn luyện thật, bộ còn lại là validation test. Khi làm như thế thì mới đánh giá được việc học đã tốt thật hay chưa, hay chỉ là học tủ. Vì vậy, \emph{overfitting} còn có thể so sánh với việc \emph{học tủ} của con người.
+Việc này giống như khi ôn thi. Giả sử không biết đề thi như thế nào nhưng có 10 bộ đề thi từ các năm trước. Để xem trình độ của mình trước khi thi thế nào, có một cách là bỏ riêng một bộ đề ra, không ôn tập gì. Việc ôn tập sẽ được thực hiện dựa trên 9 bộ còn lại. Sau khi ôn tập xong, lấy bộ đề đã để riêng ra làm thử và kiểm tra kết quả, như thế mới ``khách quan'', mới giống như thi thật. 10 bộ đề ở các năm trước là ``toàn bộ'' tập huấn luyện. Để tránh việc học lệch, học tủ theo chỉ 10 bộ, tách 9 bộ ra làm tập huấn luyện thật, bộ còn lại là validation test. Khi làm như thế thì mới đánh giá được việc học đã tốt thật hay chưa, hay chỉ là học tủ. Vì vậy, \emph{overfitting} còn có thể so sánh với việc \emph{học tủ} của con người.
 
 Với khái niệm mới này, cần tìm mô hình sao cho cả \emph{train eror} và \emph{validation error} đều nhỏ, qua đó có thể dự đoán được test error cũng nhỏ. Phương pháp thường dùng là sử dụng nhiều mô hình khác nhau. Mô hình nào cho validation error nhỏ nhất sẽ là mô hình tốt.
 
@@ -791,7 +791,7 @@ Scikit-learn \footnote{\textbf{Scikit-learn} (hay \emph{sklearn}) là thư việ
 \section{Một số lỗ hổng tấn công web phổ biến}
 Việc tìm hiểu các hình thức tấn công web và một số lỗ hổng phổ biến trên ứng dụng web góp phần nào để hiểu được cách thức để nhận dạng một traffic là bình thường hay bất thường. Khi đó, mới có thể khai thác tốt được các đặc trưng của tập dữ liệu được sử dụng để huấn luyện. Thông thường một traffic bất thường sẽ chứa những pattern (mẫu) của các lỗ hổng tấn công, thường những lỗ hổng phổ biến sẽ có những pattern rõ ràng. Chính vì vậy, hai lỗ hổng phổ biến nhất trong ứng dụng web là \emph{SQL injection} và \emph{\acrshort{xss}} được chọn để trình bày.
 \subsection{SQL Injection}
-Đa số ứng dụng web ngày này đều quản lý và đáp ứng các yêu cầu truy xuất dữ liệu
+Đa số ứng dụng web ngày nay đều quản lý và đáp ứng các yêu cầu truy xuất dữ liệu
 thông qua ngôn ngữ truy vấn cấu trúc SQL. Các hệ quản trị \acrfull{csdl} thông dụng
 như Oracle, MS SQL hay MySQL đều có chung một đặc điểm này, chính vì vậy những
 dạng tấn công liên quan đến SQL thường được xếp hàng đầu trong danh sách các lỗ hổng nguy hiểm nhất, và dạng tấn công vào những lỗi này gọi là SQL injection.
@@ -900,8 +900,8 @@ http://example.com/name=%3Cscript%3Evar+i%3Dnew+Image%3B+i.src%3D%E2%80%9Dhttp%3
 
 Giả sử \textbf{example.com} là website nạn nhân truy cập, \textbf{hacker-site.net} là trang của hacker tạo ra.
 
-\item Nạn nhân truy cập đến URL trên
-\item Server phản hồi cho nạn nhân, kèm với dữ liệu có trong request (đoạn javascript của hacker)
+\item Nạn nhân truy cập đến URL trên.
+\item Server phản hồi cho nạn nhân, kèm với dữ liệu có trong request (đoạn javascript của hacker).
 \item Trình duyệt nạn nhân nhận phản hồi và thực thi đoạn javascript. Đoạn javascript mà hacker tạo ra thực tế như sau:
 
 \begin{lstlisting}[language=HTML]
@@ -950,7 +950,7 @@ Reflected \acrshort{xss} và Stored \acrshort{xss} có 2 sự khác biệt lớn
 \item Thứ hai, mục tiêu của hacker sẽ dễ dàng đạt được hơn nếu tại thời điểm tấn công nạn nhân vẫn trong phiên làm việc (session) của ứng dụng web. Với Reflected \acrshort{xss}, hacker có thể thuyết phục hay lừa nạn nhân đăng nhập rồi truy cập đến URL mà hacker cung cấp để thực thi mã độc. Nhưng Stored \acrshort{xss} thì khác, vì mã độc đã được lưu trong \acrshort{csdl} Web nên bất cứ khi nào người dùng truy cập các chức năng liên quan thì mã độc sẽ được thực thi, và nhiều khả năng là những chức năng này yêu cầu phải xác thực (đăng nhập) trước nên hiển nhiên trong thời gian này người dùng vẫn đang trong phiên làm việc.
 \end{itemize}
 
-Từ những điều này có thể thấy Stored \acrshort{xss} nguy hiểm hơn Reflected \acrshort{xss} rất nhiều, đối tượng bị ảnh hưởng có thế là tất cả nhưng người sử dụng ứng dụng web đó. Và nếu nạn nhân có vai trò quản trị thì còn có nguy cơ bị chiếm quyền điều khiển web.
+Từ những điều này có thể thấy Stored \acrshort{xss} nguy hiểm hơn Reflected \acrshort{xss} rất nhiều, đối tượng bị ảnh hưởng có thế là tất cả những người sử dụng ứng dụng web đó. Và nếu nạn nhân có vai trò quản trị thì còn có nguy cơ bị chiếm quyền điều khiển web.
 
 \subsubsection*{DOM Based \acrshort{xss}}
 DOM Based \acrshort{xss} là kỹ thuật khai thác \acrshort{xss} dựa trên việc thay đổi cấu trúc DOM của tài liệu, cụ thể là HTML. 

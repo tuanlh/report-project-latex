@@ -19,7 +19,7 @@ Có ba loại \textbf{requests anomalous} được quan tâm:
 \begin{itemize}
 \item \textbf{Static attacks:} cố gắng truy cập vào các tài nguyên bị ẩn. Những requests này bao gồm: những tập tin ít dùng, \emph{Session ID} trong URL rewrite, những tập tin cấu hình, những tập tin mặc định, \ldots
 \item \textbf{Dynamic attacks:} chỉnh lại những tham số hợp lệ của request để thực hiện các cuộc tấn công \emph{SQL injection, CRLF injection, \acrshort{xss}, buffer overflows}, \ldots
-\item \textbf{Unintentional illegel requests}: những requests này không cố ý chứa những thứ độc hại, tuy nhiên họ không tuân theo những hành vi bình thường của ứng dụng web và không có cấu trúc như những tham số bình thường. Ví dụ trường (field) nhập số điện thoại có kiểu là \emph{số} nhưng người dùng lại vào đó là \emph{ký tự}.
+\item \textbf{Unintentional illegel requests}: những requests này không cố ý chứa những thứ độc hại, tuy nhiên họ không tuân theo những hành vi bình thường của ứng dụng web và không có cấu trúc như những tham số bình thường. Ví dụ trường (field) nhập số điện thoại có kiểu là \emph{số} nhưng người dùng lại nhập vào đó là \emph{ký tự}.
 \end{itemize}
 
 Tập dữ liệu này được chia thành ba phần khác nhau. Một phần cho giai đoạn \emph{huấn luyện}, chỉ chứa những traffic bình thường. Và hai phần còn lại được dùng cho giai đoạn \emph{kiểm tra}, một với những traffic bình thường, một với những traffic malicious (lưu lượng độc hại).
@@ -84,7 +84,7 @@ Từ đó có được vector đầu vào với các giá trị \textbf{\{117, 6
 Xem xét thêm một ví dụ về một traffic bất thường.
 
 \begin{example}
-Một HTTP request từ trong tập \emph{anormalous} (bất thường) như sau:
+Một HTTP request từ trong tập \emph{anomalous} (bất thường) như sau:
 
 \begin{lstlisting}
 POST http://localhost:8080/tienda1/publico/anadir.jsp HTTP/1.1
@@ -146,7 +146,7 @@ NumberRow = NumberRow + NumberAnomalous
 SaveModel(MatrixData, "MatrixData.pkl")
 \end{lstlisting}
 
-Hàm \textbf{read\_file} sẽ đọc lần lược file ``normalTrafficTraining.txt''  là tập dữ liệu gồm những request bình thường và  ``anomalousTrafficTest.txt'' là tập dữ liệu gồm những request bất thường. Hàm \textbf{processFile} trả về một ma trận, các dòng trong ma trận là các điểm dữ liệu được trích xuất từ HTTP request và số dòng của ma trận. Ma trận này gồm 7 cột, 6 cột đầu tương ứng với các đặc tính được trình bài ở trên. Cột thứ 7 là nhãn của dữ liệu gồm 0 hoặc 1 tương ứng bình thường hay bất thường.
+Hàm \textbf{read\_file} sẽ đọc lần lược file ``normalTrafficTraining.txt''  là tập dữ liệu gồm những request bình thường và  ``anomalousTrafficTest.txt'' là tập dữ liệu gồm những request bất thường. Hàm \textbf{processFile} trả về một ma trận, các dòng trong ma trận là các điểm dữ liệu được trích xuất từ HTTP request và số dòng của ma trận. Ma trận này gồm 7 cột, 6 cột đầu tương ứng với các đặc tính được trình bày ở trên. Cột thứ 7 là nhãn của dữ liệu gồm 0 hoặc 1 tương ứng bình thường hay bất thường.
 
 \subsection{Phân tách dữ liệu huấn luyện và dữ liệu kiểm tra}
 Tiến hành chia dữ liệu thành hai phần. Phần 1 gồm dữ liệu dùng để huấn luyện, chiếm 80\% dữ liệu. Phần 2 gồm dữ liệu cho quá trình kiểm tra độ chính xác chiếm 20\% dữ liệu.
@@ -170,12 +170,12 @@ Y_Test = MatrixData[NumberRowTrainSet : NumberRow, NumberFeature]
 
 \begin{itemize}
 \item \textbf{X\_Train} là tập gồm các giá trị đặc tính cho quá trình huấn luyện.
-\item \textbf{Y\_Train} là tập gồm các nhãn cũa dữ liệu dùng cho quá trình huấn luyện.
+\item \textbf{Y\_Train} là tập gồm các nhãn của dữ liệu dùng cho quá trình huấn luyện.
 \item Tương tự \textbf{X\_Test} và \textbf{Y\_Test} được dùng cho quá trình kiểm tra.
 \end{itemize}
 
 \subsection{Giai đoạn huấn luyện và kiểm tra}
-Trong code minh họa dưới đây sử dụng thư viện của scikit-learn để hổ trợ quá trình xây dựng cây. Cách thuật toán hoạt động đã được trình bài ở phần lý thuyết ở trên.
+Trong code minh họa dưới đây sử dụng thư viện của scikit-learn để hỗ trợ quá trình xây dựng cây. Cách thuật toán hoạt động đã được trình bày ở phần lý thuyết ở trên.
 
 \begin{lstlisting}[language=Python]
 # Training process
@@ -217,7 +217,7 @@ Report tổng quan mà phần mềm xuất ra được thể hiện như trong h
 \label{fig:result}
 \end{figure}
 
-Như ta thấy, tổng cộng \textbf{60668} dữ liệu thu được từ hai tập dữ liệu. Sau quá trình huấn luyện, kết quả dự đoán chính xác \textbf{0.8927} tức 89.27\%.
+Tổng cộng \textbf{60668} dữ liệu thu được từ hai tập dữ liệu. Sau quá trình huấn luyện, kết quả dự đoán chính xác \textbf{0.8927} tức 89.27\%.
 
 Giải thích thông số trong phần report:
 
@@ -268,9 +268,9 @@ Sau khi quan sát đồ thị thấy đường màu đỏ (\emph{Training Score}
 
 Để thêm trực quan, chúng tôi cũng cho xuất một file output là \textbf{DACN.pdf} cùng thư mục với file chạy thể hiện sơ đồ cây thu được.
 \subsection{Điều chỉnh thông số}
-Như đã trình bày ở phần \ref{sec:stop_trees}, để tăng độ chính xác và giảm thiểu trường hợp \emph{overfitting} có thể giới hạn độ sâu, số lượng điểm dữ liệu tối thiểu được phép tách node thành hai nhánh mới hoặc số điểm dữ liệu tối thiểu phải có trên một lá và nhiều thông số khác. Tiến hành thử từng thông số, mỗi thông số sau quá trình huấn luyện sẽ được kiểm thử và tính chỉ số \textbf{F1-score}. Cuối cùng chọn bộ tham số có chỉ số F1-score cao nhất.
+Như đã trình bày ở phần \ref{sec:stop_trees}, để tăng độ chính xác và giảm thiểu trường hợp \emph{overfitting} có thể giới hạn độ sâu, số lượng điểm dữ liệu tối thiểu được phép tách node thành hai nhánh mới hoặc số điểm dữ liệu tối thiểu phải có trên một nút lá và nhiều thông số khác. Tiến hành thử từng thông số, mỗi thông số sau quá trình huấn luyện sẽ được kiểm thử và tính chỉ số \textbf{F1-score}. Cuối cùng chọn bộ tham số có chỉ số F1-score cao nhất.
 
-Quá trình chọn tham số được giải quyết qua thư viện \textbf{GridSearchCV} trong skLearn. Thư viện sẽ tiến hành thử từng bộ tham số, cho ta kết quả tốt nhất.
+Quá trình chọn tham số được giải quyết qua thư viện \textbf{GridSearchCV} trong scikit-learn. Thư viện sẽ tiến hành thử từng bộ tham số, cho ta kết quả tốt nhất.
 
 \begin{lstlisting}[language=Python]
 paramater = [{'max_depth' : range(1, 40), 'min_samples_split' : range(2,50), 'min_samples_leaf' : range(1,10)}]
@@ -278,7 +278,7 @@ clf = GridSearchCV(tree.DecisionTreeClassifier(), paramater, cv=10,n_jobs=6)
 clf = clf.fit(X_Train, Y_Train)
 \end{lstlisting}
 
-Biến \textbf{paramater} liệt kê những tham số ta cần thay đổi, trong báo cáo này ba thông số sau sẽ được thay đổi:
+Biến \textbf{paramater} liệt kê những tham số cần thay đổi, trong báo cáo này ba thông số sau sẽ được thay đổi:
 
 \begin{itemize}
 \item \textbf{max\_depth:} độ sâu tối đa của cây, lần lượt thử từ $1 \to 40$.
